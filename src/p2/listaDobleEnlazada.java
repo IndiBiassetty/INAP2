@@ -1,7 +1,5 @@
 package p2;
 
-//indi biassetty hernandez
-
 public class listaDobleEnlazada {
     public nodo  primero;
     public nodo  ultimo;
@@ -90,7 +88,7 @@ public class listaDobleEnlazada {
 
    }
    
-   public static void main(String[] args) {
+   /*public static void main(String[] args) {
        listaDobleEnlazada t = new listaDobleEnlazada();
        t.agregar("A");
        t.agregar("B");
@@ -100,5 +98,6 @@ public class listaDobleEnlazada {
        t.imprimir();
   
 
-   }   
+   }
+   */
 }
