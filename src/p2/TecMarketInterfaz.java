@@ -2,13 +2,11 @@ package p2;
 
 /**
  *
- * @author Indiana
+ * Se hace el nuevo repo
  */
 public class TecMarketInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TecMarket
-     */
+    
     public TecMarketInterfaz() {
         initComponents();
     }
