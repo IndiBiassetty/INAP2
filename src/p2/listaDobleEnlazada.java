@@ -1,6 +1,6 @@
 package p2;
 
-//indi
+//indi biassetty hernandez
 
 public class listaDobleEnlazada {
     public nodo  primero;
