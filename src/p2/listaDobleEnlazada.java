@@ -1,5 +1,7 @@
 package p2;
 
+//indi
+
 public class listaDobleEnlazada {
     public nodo  primero;
     public nodo  ultimo;
