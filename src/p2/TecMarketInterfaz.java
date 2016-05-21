@@ -1,7 +1,7 @@
 package p2;
 
 /**
- *
+ * prueba de commit
  * Se hace el nuevo repo
  */
 public class TecMarketInterfaz extends javax.swing.JFrame {
