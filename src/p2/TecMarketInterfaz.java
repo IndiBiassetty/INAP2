@@ -19,7 +19,19 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         //Ubicacion y tamaño del panelPrincipal
         panelPrincipal.setLayout(null);
         panelPrincipal.setBounds(0,0, 800, 600);
+        //Ubicacion del titulo
         titulo.setBounds(new Rectangle(15, 0, 766, 69));
+        //Botones
+        //Agregar sucursal
+        botonAgregarSucursal.setBounds(20, 160, 125,38);
+        //Insertar camino
+        botonInsertarCamino.setBounds(20, 220, 125,38);
+        //Crear inventario
+        botonCrearInventario.setBounds(20,280, 125,38);
+        //Atender cliente
+        botonAtenderCliente.setBounds(20,340, 125,38);
+        //Generar reporte
+        botonGenerarReporte.setBounds(20, 4400, 125, 38);
         
         
     }
@@ -36,6 +48,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         textFieldBuscarProducto = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        botonAtenderCliente = new javax.swing.JButton();
+        botonGenerarReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 51));
@@ -106,17 +120,34 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
 
+        botonAtenderCliente.setBackground(new java.awt.Color(204, 204, 204));
+        botonAtenderCliente.setText("Atender cliente");
+        botonAtenderCliente.setActionCommand("");
+        botonAtenderCliente.setFocusPainted(false);
+        botonAtenderCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        botonAtenderCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonAtenderCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtenderClienteActionPerformed(evt);
+            }
+        });
+
+        botonGenerarReporte.setBackground(new java.awt.Color(204, 204, 204));
+        botonGenerarReporte.setText("Generar reporte");
+        botonGenerarReporte.setActionCommand("");
+        botonGenerarReporte.setFocusPainted(false);
+        botonGenerarReporte.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        botonGenerarReporte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        botonGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGenerarReporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonCrearInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonInsertarCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonAgregarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
@@ -130,6 +161,19 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonCrearInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelPrincipalLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(botonAgregarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPrincipalLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(botonInsertarCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(botonAtenderCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,13 +185,17 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(textFieldBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
+                .addGap(23, 23, 23)
                 .addComponent(botonAgregarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonInsertarCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonCrearInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(botonAtenderCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,6 +235,14 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botonAtenderClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtenderClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonAtenderClienteActionPerformed
+
+    private void botonGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGenerarReporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonGenerarReporteActionPerformed
   public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -198,7 +254,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregarSucursal;
+    private javax.swing.JButton botonAtenderCliente;
     private javax.swing.JButton botonCrearInventario;
+    private javax.swing.JButton botonGenerarReporte;
     private javax.swing.JButton botonInsertarCamino;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
