@@ -1,5 +1,6 @@
 package p2;
 
+//Prueba
 public class listaDobleEnlazada {
     public nodo  primero;
     public nodo  ultimo;
