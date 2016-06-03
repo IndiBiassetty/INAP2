@@ -32,7 +32,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="panelPrincipal" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
@@ -43,9 +43,16 @@
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="panelConsultarModificarCaminos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelAgregarProductos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -57,14 +64,21 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelConsultarModificarSocursal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="94" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="panelConsultarModificarCaminos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="84" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelAgregarProductos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="95" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -94,49 +108,46 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cbSucursal" min="-2" pref="153" max="-2" attributes="0"/>
-                                      <Component id="lbCaminos" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="botonCrearInventario" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="botonCamino" min="-2" pref="78" max="-2" attributes="0"/>
-                                      <Component id="botonBuscarSucursal" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                                      <Component id="botonGenerarReporte" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="lbSucursal" min="-2" pref="104" max="-2" attributes="0"/>
-                              <Component id="cbCamino" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                              <Component id="lbInventarios" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbInventario" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                              <Component id="lbReportes" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                              <Component id="cbReporte" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
-                              <Component id="lbCliente" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                              <Component id="botonAtenderCliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="textFieldBuscarProducto" min="-2" pref="117" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cbMenorDistanciaTiempo" min="-2" pref="119" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="botonLupa" min="-2" pref="32" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbSucursal" min="-2" pref="153" max="-2" attributes="0"/>
+                                  <Component id="lbCaminos" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="botonCrearInventario" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="botonCamino" min="-2" pref="78" max="-2" attributes="0"/>
+                                  <Component id="botonBuscarSucursal" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                                  <Component id="botonGenerarReporte" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="titulo" min="-2" pref="767" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lbSucursal" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="cbCamino" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="lbInventarios" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbInventario" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="lbReportes" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="cbReporte" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="lbCliente" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="botonAtenderCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="507" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="textFieldBuscarProducto" min="-2" pref="117" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="cbMenorDistanciaTiempo" min="-2" pref="119" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="botonLupa" min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="titulo" min="-2" pref="767" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -144,7 +155,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <Component id="titulo" min="-2" pref="69" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -375,10 +386,9 @@
         <Component class="javax.swing.JComboBox" name="cbSucursal">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="2">
                 <StringItem index="0" value="Agregar sucursal"/>
                 <StringItem index="1" value="Consultar/Modificar"/>
-                <StringItem index="2" value="Eliminar"/>
               </StringArray>
             </Property>
           </Properties>
@@ -389,10 +399,9 @@
         <Component class="javax.swing.JComboBox" name="cbCamino">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="2">
                 <StringItem index="0" value="Agregar camino"/>
                 <StringItem index="1" value="Consultar/Modificar"/>
-                <StringItem index="2" value="Eliminar"/>
               </StringArray>
             </Property>
           </Properties>
@@ -456,7 +465,7 @@
                           <Component id="panelConCosasConsultar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="115" max="32767" attributes="0"/>
+                  <EmptySpace pref="86" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -513,11 +522,13 @@
                               <Component id="labelNombreSucursal1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="cbConsultar" min="-2" pref="212" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="botonVerConsultar" min="-2" pref="81" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="botonModificarConsultar" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="botonModificarConsultar" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="botonEliminarSucursal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -534,10 +545,11 @@
                           <Component id="cbConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonVerConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonModificarConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonEliminarSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="scrollConsultarSucursal" min="-2" pref="382" max="-2" attributes="0"/>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="62" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -601,6 +613,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarConsultarActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="botonEliminarSucursal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarSucursalActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
@@ -615,36 +635,36 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="titulo4" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Component id="titulo6" alignment="0" min="-2" max="-2" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="atrasConsultarModificarCamino" min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="atrasConsultarModificarCaminos" min="-2" pref="58" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="panelConCosasConsultarCamino" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelConCosasConsultarCaminos" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="titulo4" min="-2" max="-2" attributes="0"/>
+                  <Component id="titulo6" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="atrasConsultarModificarCamino" min="-2" max="-2" attributes="0"/>
+                          <Component id="atrasConsultarModificarCaminos" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="panelConCosasConsultarCamino" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelConCosasConsultarCaminos" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="115" max="32767" attributes="0"/>
+                  <EmptySpace pref="86" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="titulo4">
+        <Component class="javax.swing.JLabel" name="titulo6">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="33" red="33" type="rgb"/>
@@ -656,7 +676,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="atrasConsultarModificarCamino">
+        <Component class="javax.swing.JButton" name="atrasConsultarModificarCaminos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -668,10 +688,10 @@
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atrasConsultarModificarCaminoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atrasConsultarModificarCaminosActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="panelConCosasConsultarCamino">
+        <Container class="javax.swing.JPanel" name="panelConCosasConsultarCaminos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -682,24 +702,26 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelConsultar1" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="labelConsultarCaminos" min="-2" pref="258" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="scrollConsultarCamino" max="32767" attributes="0"/>
+                              <Component id="scrollConsultarCaminos" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelNombreSucursal2" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNombreSucursal3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="cbConsultarCamino" min="-2" pref="212" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                              <Component id="botonVerConsultarCamino" min="-2" pref="81" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="botonModificarConsultarCamino" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                              <Component id="cbConsultarCaminos" min="-2" pref="212" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="botonVerConsultarCaminos" min="-2" pref="81" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="botonModificarConsultarCaminos" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="botonEliminarCaminos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -709,23 +731,24 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelConsultar1" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="labelConsultarCaminos" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelNombreSucursal2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="cbConsultarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="botonVerConsultarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="botonModificarConsultarCamino" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNombreSucursal3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="cbConsultarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonVerConsultarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonModificarConsultarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonEliminarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollConsultarCamino" min="-2" pref="382" max="-2" attributes="0"/>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="scrollConsultarCaminos" min="-2" pref="335" max="-2" attributes="0"/>
+                      <EmptySpace pref="109" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="labelNombreSucursal2">
+            <Component class="javax.swing.JLabel" name="labelNombreSucursal3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
@@ -733,15 +756,15 @@
                 <Property name="text" type="java.lang.String" value="Sucursal:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="botonVerConsultarCamino">
+            <Component class="javax.swing.JButton" name="botonVerConsultarCaminos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerConsultarCaminoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerConsultarCaminosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbConsultarCamino">
+            <Component class="javax.swing.JComboBox" name="cbConsultarCaminos">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -752,11 +775,8 @@
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbConsultarCaminoActionPerformed"/>
-              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelConsultar1">
+            <Component class="javax.swing.JLabel" name="labelConsultarCaminos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>
@@ -764,26 +784,227 @@
                 <Property name="text" type="java.lang.String" value="Consultar caminos"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="scrollConsultarCamino">
+            <Container class="javax.swing.JScrollPane" name="scrollConsultarCaminos">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextPane" name="TPaneConsultarCamino1">
+                <Component class="javax.swing.JTextPane" name="TPaneConsultarCaminos">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="botonModificarConsultarCamino">
+            <Component class="javax.swing.JButton" name="botonModificarConsultarCaminos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarConsultarCaminoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarConsultarCaminosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonEliminarCaminos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarCaminosActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelAgregarProductos">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="titulo7" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="atrasInventario" min="-2" pref="58" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="panelConCosasAgregarProductos" min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="titulo7" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="atrasInventario" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="panelConCosasAgregarProductos" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="86" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="titulo7">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/titulo2.jpg"/>
+            </Property>
+            <Property name="inheritsPopupMenu" type="boolean" value="false"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="atrasInventario">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/flechaAtras.jpg"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atrasInventarioActionPerformed"/>
+          </Events>
+        </Component>
+        <Container class="javax.swing.JPanel" name="panelConCosasAgregarProductos">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="labelConsultarCaminos1" min="-2" pref="258" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="scrollConsultarCaminos1" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelNombreSucursal4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="cbConsultarCaminos1" min="-2" pref="212" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="botonVerConsultarCaminos1" min="-2" pref="81" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="botonModificarConsultarCaminos1" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="botonEliminarCaminos1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="labelConsultarCaminos1" min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelNombreSucursal4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="cbConsultarCaminos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonVerConsultarCaminos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonModificarConsultarCaminos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonEliminarCaminos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="scrollConsultarCaminos1" min="-2" pref="382" max="-2" attributes="0"/>
+                      <EmptySpace pref="62" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="labelNombreSucursal4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Sucursal:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonVerConsultarCaminos1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerConsultarCaminos1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbConsultarCaminos1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelConsultarCaminos1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="24" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Agregar inventario"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="scrollConsultarCaminos1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextPane" name="TPaneConsultarCaminos1">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="botonModificarConsultarCaminos1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarConsultarCaminos1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonEliminarCaminos1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarCaminos1ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
