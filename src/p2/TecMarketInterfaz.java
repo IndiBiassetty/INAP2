@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import java.awt.GridLayout;
 import javax.swing.*;
 import java.awt.Font; 
-
+ 
 
 public class TecMarketInterfaz extends javax.swing.JFrame {
     public String variabImprimir = "";
@@ -804,7 +804,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane TPaneConsultarCamino1;
     private javax.swing.JTextPane TPaneConsultarSucursales;
