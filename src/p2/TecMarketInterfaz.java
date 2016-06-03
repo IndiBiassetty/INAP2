@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.awt.GridLayout;
 import javax.swing.*;
+import java.awt.Font; 
+
 
 public class TecMarketInterfaz extends javax.swing.JFrame {
     public String variabImprimir = "";
@@ -658,20 +660,27 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void botonCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminoActionPerformed
         if(cbCamino.getSelectedItem() == "Agregar camino"){
             
-            JTextField campoNombre = new JTextField();
-            JTextField campoCantEmple = new JTextField();
-            JCheckBox chBCrearInvent = new JCheckBox("Crear inventario");
-            JPanel panelMsjAgregar = new JPanel(new GridLayout(0, 1));
-            panelMsjAgregar.add(new JLabel("Nombre de la Sucursal:"));
-            panelMsjAgregar.add(campoNombre);
-            panelMsjAgregar.add(new JLabel("Cantidad de empleados:"));
-            panelMsjAgregar.add(campoCantEmple);
-            panelMsjAgregar.add(chBCrearInvent);
+            JTextField campoCamino = new JTextField();
+            JTextField campoDistKm = new JTextField();
+            JTextField campoTiempo = new JTextField();
+            JLabel ejemplo = new JLabel("Ejemplo: A-B-C");
             
-            int mensajeAgregarCamino= JOptionPane.showConfirmDialog(panelPrincipal,panelMsjAgregar, "Agregar sucursal",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            Font fuente=new Font("Tahoma", Font.ITALIC, 11);
+            ejemplo.setFont(fuente);
+            JPanel panelMsjAgregarCamino = new JPanel(new GridLayout(0, 1));
+            panelMsjAgregarCamino.add(new JLabel("Camino:"));
+            panelMsjAgregarCamino.add(ejemplo);
+            panelMsjAgregarCamino.add(campoCamino);
+            panelMsjAgregarCamino.add(new JLabel("Distancia en km:"));
+            panelMsjAgregarCamino.add(campoDistKm);
+            panelMsjAgregarCamino.add(new JLabel("Tiempo de recorrido:"));
+            panelMsjAgregarCamino.add(campoTiempo);
+            
+            int mensajeAgregarCamino= JOptionPane.showConfirmDialog(panelPrincipal,panelMsjAgregarCamino, "Agregar camino",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-            String varAgregarNombre = campoNombre.getText();
-            String varAgregarCantEmple = campoCantEmple.getText();
+            String varAgregarCamino = campoCamino.getText();
+            String varDistanciaKm = campoDistKm.getText();
+            String varDuracion = campoTiempo.getText();
             //chBCrearInvent isSelected()    
         }
         else{
@@ -742,7 +751,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         //Si se agrega una variable para meter los datos hay que resetearla    
     }
     
-    
     }//GEN-LAST:event_botonModificarConsultarActionPerformed
 
     private void atrasConsultarModificarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarModificarCaminoActionPerformed
@@ -755,21 +763,30 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVerConsultarCaminoActionPerformed
 
     private void botonModificarConsultarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarConsultarCaminoActionPerformed
-    
-    JTextField campoNombre = new JTextField();
-    JTextField campoCantEmple = new JTextField();
-    JPanel panelMsjModificar = new JPanel(new GridLayout(0, 1));
-    panelMsjModificar.add(new JLabel("Nombre de la Sucursal:"));
-    panelMsjModificar.add(campoNombre);
-    panelMsjModificar.add(new JLabel("Cantidad de empleados:"));
-    panelMsjModificar.add(campoCantEmple);
-        
-    int mensajeModificar = JOptionPane.showConfirmDialog(panelConsultarModificarSocursal,panelMsjModificar, "Modificar información",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-    
-    String varCampoNombre = campoNombre.getText();
-    String varCampoCantEmple = campoCantEmple.getText();
-    
-    if (mensajeModificar != JOptionPane.CANCEL_OPTION) {
+     
+        JTextField campoCamino = new JTextField();
+        JTextField campoDistKm = new JTextField();
+        JTextField campoTiempo = new JTextField();
+        JLabel ejemplo = new JLabel("Ejemplo: A-B-C");
+
+        Font fuente=new Font("Tahoma", Font.ITALIC, 11);
+        ejemplo.setFont(fuente);
+        JPanel panelMsjAgregarCamino = new JPanel(new GridLayout(0, 1));
+        panelMsjAgregarCamino.add(new JLabel("Camino:"));
+        panelMsjAgregarCamino.add(ejemplo);
+        panelMsjAgregarCamino.add(campoCamino);
+        panelMsjAgregarCamino.add(new JLabel("Distancia en km:"));
+        panelMsjAgregarCamino.add(campoDistKm);
+        panelMsjAgregarCamino.add(new JLabel("Tiempo de recorrido:"));
+        panelMsjAgregarCamino.add(campoTiempo);
+
+        int mensajeAgregarCamino= JOptionPane.showConfirmDialog(panelConsultarModificarCaminos,panelMsjAgregarCamino, "Modificar camino",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+        String varAgregarCamino = campoCamino.getText();
+        String varDistanciaKm = campoDistKm.getText();
+        String varDuracion = campoTiempo.getText();
+            
+    if (mensajeAgregarCamino != JOptionPane.CANCEL_OPTION) {
         TPaneConsultarSucursales.setText(null);
         System.out.println("fgdfsgdsgds");
         //Si se agrega una variable para meter los datos hay que resetearla    
