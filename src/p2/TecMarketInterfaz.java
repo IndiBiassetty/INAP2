@@ -746,7 +746,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_botonModificarConsultarActionPerformed
 
     private void atrasConsultarModificarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarModificarCaminoActionPerformed
-        // TODO add your handling code here:
+        panelConsultarModificarCaminos.setVisible(false);
+        panelPrincipal.setVisible(true);        
     }//GEN-LAST:event_atrasConsultarModificarCaminoActionPerformed
 
     private void botonVerConsultarCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerConsultarCaminoActionPerformed
