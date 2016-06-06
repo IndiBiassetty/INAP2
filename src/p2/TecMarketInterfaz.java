@@ -1011,7 +1011,22 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
              
              //Si el usuario le da aceptar a la ventana emergente se crea la sucursal
              if (JOptionPane.CANCEL_OPTION != mensajeAgregarSucursal){
-                 cadenaSupermercados.agregarSuperMercado(varAgregarNombre, varCantidadEmpleados);
+                 
+                 //Valida si los espacios estan llenos
+                 varAgregarNombre=varAgregarNombre.replaceAll(" ", "");
+                 varCantidadEmpleados=varCantidadEmpleados.replaceAll(" ", "");
+                                    
+                 if (varAgregarNombre.length() == 0  | varCantidadEmpleados.length()== 0){
+                    JOptionPane.showMessageDialog(panelPrincipal, "Operación Invalida, ingrese todos los datos que se le solicitan");
+                       
+                 }
+                 else{
+                     //Si los espacios estan llenos crea el vertice
+                     cadenaSupermercados.agregarSuperMercado(campoNombre.getText(), campoCantEmple.getText());
+                     cadenaSupermercados.imprimeGrafo();
+                     JOptionPane.showMessageDialog(panelPrincipal, "Se ha registrado la sucursal correctamente");
+                     
+                 }
             }
              
         }

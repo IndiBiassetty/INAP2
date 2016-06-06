@@ -56,7 +56,7 @@ public class Grafo{
             nodoEsp actual;
             for(int imprimir = 0; imprimir < this.SuperMercados.size(); imprimir++){
                 actual = SuperMercados.get(imprimir);
-                System.out.println(">>> Super Mercado : "+actual.nombreSuperMercado);
+                System.out.println(">>> Super Mercado imprimido : "+actual.nombreSuperMercado+", Cantidad de empleados: "+ actual.numEmpleados);
                 for(int ruta = 0; ruta < actual.Rutas.size(); ruta++){
                         System.out.println("\n>>> Super Mercado :"+actual.nombreSuperMercado + "\n>>> Con destino a : "+actual.Rutas.get(ruta).Ruta + "\n>>> Con distancia de : "+actual.Rutas.get(ruta).Distancia+"Km"+"\n>>> Con una  Duracion de : " + actual.Rutas.get(ruta).Tiempo+"min");
                 }

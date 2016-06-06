@@ -23,7 +23,7 @@ public class nodoEsp{
 	}
 
 	public nodoEsp(String nombreSucursal, String cantEmpleados){
-			this.nombreSuperMercado      = nombreSucursal;
+			this.nombreSuperMercado = nombreSucursal;
                         this.numEmpleados = cantEmpleados;
 			this.IndicadorVisitado   = false;
 			this.Rutas       = new LinkedList<nodoN>();

@@ -1,3 +1,5 @@
+//Esta es la lista de adyacencia donde se almacenan las rutas 
+
 package p2;
 
 public class nodoN{
