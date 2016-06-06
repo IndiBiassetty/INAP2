@@ -7,15 +7,23 @@ import javax.swing.JOptionPane;
 import java.awt.GridLayout;
 import javax.swing.*;
 import java.awt.Font; 
+//Se importa el grafo
+import p2.*;
  
 
 public class TecMarketInterfaz extends javax.swing.JFrame {
+
+//Estructuras
+    Grafo cadenaSupermercados = new Grafo();
+    
+//Variables globales
     public String variabImprimir = "";
     public String variabImprimir2 = "";
     public String variabImprimir3 = "";
     
     public TecMarketInterfaz() {
         initComponents();
+        
 //JFrame
         
         //Bloquea el tamaño del jframe.
@@ -184,7 +192,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         scrollConsultarCaminos = new javax.swing.JScrollPane();
         TPaneConsultarCaminos = new javax.swing.JTextPane();
         botonModificarConsultarCaminos = new javax.swing.JButton();
-        botonEliminarCaminos = new javax.swing.JButton();
         panelAgregarProductos = new javax.swing.JPanel();
         titulo8 = new javax.swing.JLabel();
         atrasAgregarInventario = new javax.swing.JButton();
@@ -344,7 +351,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
 
-        cbCamino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Agregar camino", "Consultar/Modificar" }));
+        cbCamino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Agregar camino", "Consultar/Modificar", "Eliminar" }));
 
         cbInventario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Insertar producto", "Consultar/Modificar" }));
         cbInventario.addActionListener(new java.awt.event.ActionListener() {
@@ -399,9 +406,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botonLupa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbMenorDistanciaTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(textFieldBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cbMenorDistanciaTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(lbSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -426,7 +432,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonGenerarReporte))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonAtenderCliente)
@@ -491,12 +497,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             .addGroup(panelConCosasConsultarLayout.createSequentialGroup()
                 .addComponent(labelConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConCosasConsultarLayout.createSequentialGroup()
-                .addGroup(panelConCosasConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelConCosasConsultarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(scrollConsultarSucursal))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelConCosasConsultarLayout.createSequentialGroup()
+            .addGroup(panelConCosasConsultarLayout.createSequentialGroup()
+                .addGroup(panelConCosasConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelConCosasConsultarLayout.createSequentialGroup()
                         .addComponent(labelNombreSucursal1)
                         .addGap(31, 31, 31)
                         .addComponent(cbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -506,8 +509,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                         .addComponent(botonModificarConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botonEliminarSucursal)
-                        .addGap(0, 4, Short.MAX_VALUE)))
-                .addGap(57, 57, 57))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(scrollConsultarSucursal))
+                .addContainerGap())
         );
         panelConCosasConsultarLayout.setVerticalGroup(
             panelConCosasConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -520,9 +524,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addComponent(botonVerConsultar)
                     .addComponent(botonModificarConsultar)
                     .addComponent(botonEliminarSucursal))
-                .addGap(18, 18, 18)
-                .addComponent(scrollConsultarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollConsultarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelConsultarModificarSocursalLayout = new javax.swing.GroupLayout(panelConsultarModificarSocursal);
@@ -547,7 +551,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addGroup(panelConsultarModificarSocursalLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(panelConCosasConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelConsultarModificarCaminos.setBackground(new java.awt.Color(255, 255, 255));
@@ -594,13 +598,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
 
-        botonEliminarCaminos.setText("Eliminar");
-        botonEliminarCaminos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEliminarCaminosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelConCosasConsultarCaminosLayout = new javax.swing.GroupLayout(panelConCosasConsultarCaminos);
         panelConCosasConsultarCaminos.setLayout(panelConCosasConsultarCaminosLayout);
         panelConCosasConsultarCaminosLayout.setHorizontalGroup(
@@ -610,20 +607,17 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConCosasConsultarCaminosLayout.createSequentialGroup()
                 .addGroup(panelConCosasConsultarCaminosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelConCosasConsultarCaminosLayout.createSequentialGroup()
+                    .addGroup(panelConCosasConsultarCaminosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(scrollConsultarCaminos))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelConCosasConsultarCaminosLayout.createSequentialGroup()
+                    .addGroup(panelConCosasConsultarCaminosLayout.createSequentialGroup()
                         .addComponent(labelNombreSucursal3)
                         .addGap(31, 31, 31)
                         .addComponent(cbConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                         .addComponent(botonVerConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonModificarConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botonEliminarCaminos)
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                        .addGap(29, 29, 29)
+                        .addComponent(botonModificarConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57))
         );
         panelConCosasConsultarCaminosLayout.setVerticalGroup(
@@ -635,11 +629,10 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addComponent(labelNombreSucursal3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonVerConsultarCaminos)
-                    .addComponent(botonModificarConsultarCaminos)
-                    .addComponent(botonEliminarCaminos))
+                    .addComponent(botonModificarConsultarCaminos))
                 .addGap(18, 18, 18)
                 .addComponent(scrollConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelConsultarModificarCaminosLayout = new javax.swing.GroupLayout(panelConsultarModificarCaminos);
@@ -663,8 +656,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                         .addComponent(atrasConsultarModificarCaminos))
                     .addGroup(panelConsultarModificarCaminosLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(panelConCosasConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addComponent(panelConCosasConsultarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         panelAgregarProductos.setBackground(new java.awt.Color(255, 255, 255));
@@ -900,9 +892,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addComponent(botonVerConsultarInventario)
                     .addComponent(botonModificarConsultarInventario)
                     .addComponent(botonEliminarInventario))
-                .addGap(18, 18, 18)
-                .addComponent(scrollConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelConsultarInventarioLayout = new javax.swing.GroupLayout(panelConsultarInventario);
@@ -927,7 +919,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addGroup(panelConsultarInventarioLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(panelConCosasConsultarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -936,51 +928,53 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 65, Short.MAX_VALUE))
+                .addGap(0, 45, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(55, Short.MAX_VALUE)))
+                    .addContainerGap(35, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelAgregarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(30, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(32, 32, 32)
                     .addComponent(panelConsultarModificarSocursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(33, Short.MAX_VALUE)))
+                    .addContainerGap(13, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(32, 32, 32)
-                    .addComponent(panelConsultarModificarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(33, Short.MAX_VALUE)))
+                    .addComponent(panelConsultarModificarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(71, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(270, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(253, Short.MAX_VALUE)))
+                    .addContainerGap(132, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelAgregarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(465, Short.MAX_VALUE)))
+                    .addContainerGap(344, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(132, 132, 132)
                     .addComponent(panelConsultarModificarSocursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(132, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(132, 132, 132)
-                    .addComponent(panelConsultarModificarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(132, Short.MAX_VALUE)))
+                    .addComponent(panelConsultarModificarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(180, Short.MAX_VALUE)))
         );
 
         panelPrincipal.getAccessibleContext().setAccessibleName("");
@@ -994,9 +988,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         JComboBox cbEliminarSucursal = new JComboBox();        
         JTextField campoNombre = new JTextField();
         JTextField campoCantEmple = new JTextField();
-        String varAgregarNombre = null;
-
         
+
+//Crea la nueva sucursal
         if (cbSucursal.getSelectedItem()== "Agregar sucursal"){
              JCheckBox chBCrearInvent = new JCheckBox("Crear inventario");
              JPanel panelMsjAgregar = new JPanel(new GridLayout(0, 1));
@@ -1006,9 +1000,19 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
              panelMsjAgregar.add(new JLabel("Cantidad de empleados:"));
              panelMsjAgregar.add(campoCantEmple);
              panelMsjAgregar.add(chBCrearInvent);
+             chBCrearInvent.setSelected(true);
              int mensajeAgregarSucursal= JOptionPane.showConfirmDialog(panelPrincipal,panelMsjAgregar, "Agregar sucursal",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-
+             //Variables que obtiene el nombre
+             String varAgregarNombre = campoNombre.getText();
+             //Variable que obtiene la cantidad de empleados
+             String varCantidadEmpleados = campoCantEmple.getText();
+             
+             
+             //Si el usuario le da aceptar a la ventana emergente se crea la sucursal
+             if (JOptionPane.CANCEL_OPTION != mensajeAgregarSucursal){
+                 cadenaSupermercados.agregarSuperMercado(varAgregarNombre, varCantidadEmpleados);
+            }
              
         }
         else{
@@ -1024,9 +1028,11 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
        // Object datoCB = cbCamino.getSelectedItem();
        // String datoCBString = String.valueOf(datoCB);
         
-        JComboBox cbEliminarCamino = new JComboBox();
-        JComboBox sucursalCamino = new JComboBox();
-        JTextField campoCamino = new JTextField();
+        JComboBox cbEliminarCaminoLlegada = new JComboBox();
+        JComboBox cbEliminarCaminoSalida = new JComboBox();
+        JComboBox sucursalSalida = new JComboBox();
+        JComboBox sucursalLlegada = new JComboBox();
+        //JTextField campoCamino = new JTextField();
         
         if(cbCamino.getSelectedItem() == "Agregar camino"){
             
@@ -1038,11 +1044,11 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             ejemplo.setFont(fuente);
             
             JPanel panelMsjAgregarCamino = new JPanel(new GridLayout(0, 1));
-            panelMsjAgregarCamino.add(new JLabel("Sucursal:"));
-            panelMsjAgregarCamino.add(sucursalCamino);            
-            panelMsjAgregarCamino.add(new JLabel("Camino:"));
+            panelMsjAgregarCamino.add(new JLabel("Sucursal Salida:"));
+            panelMsjAgregarCamino.add(sucursalSalida);            
+            panelMsjAgregarCamino.add(new JLabel("Sucursal Llegada:"));
             panelMsjAgregarCamino.add(ejemplo);
-            panelMsjAgregarCamino.add(campoCamino);
+            panelMsjAgregarCamino.add(sucursalLlegada);
             panelMsjAgregarCamino.add(new JLabel("Distancia en km:"));
             panelMsjAgregarCamino.add(campoDistKm);
             panelMsjAgregarCamino.add(new JLabel("Tiempo de recorrido:"));
@@ -1050,7 +1056,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             
             int mensajeAgregarCamino= JOptionPane.showConfirmDialog(panelPrincipal,panelMsjAgregarCamino, "Agregar camino",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-            String varAgregarCamino = campoCamino.getText();
+            //String varAgregarCamino = campoCamino.getText();
             String varDistanciaKm = campoDistKm.getText();
             String varDuracion = campoTiempo.getText();
           //  cbEliminarCamino.addItem(datoCB);
@@ -1064,9 +1070,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 JPanel panelMsjEliminar = new JPanel(new GridLayout(0, 1));
                 
                 panelMsjEliminar.add(new JLabel("Seleccione la sucursal:"));
-                panelMsjEliminar.add(cbEliminarCamino);
+                panelMsjEliminar.add(cbEliminarCaminoLlegada);
                 panelMsjEliminar.add(new JLabel("Camino a eliminar:"));
-                panelMsjEliminar.add(campoCamino);
+                panelMsjEliminar.add(cbEliminarCaminoSalida);
                 
                 int mensajeEliminarSucursal= JOptionPane.showConfirmDialog(panelPrincipal,panelMsjEliminar, "Eliminar sucursal",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
                
@@ -1167,14 +1173,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     
     }//GEN-LAST:event_botonModificarConsultarActionPerformed
 
-    private void botonEliminarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarSucursalActionPerformed
-        Object selecionado = cbConsultar.getSelectedItem();
-        String StringSeleccionado = String.valueOf(selecionado);
-        
-        JOptionPane.showConfirmDialog(panelConsultarModificarSocursal,"¿Desea eliminar la sucursal?", "Eliminar",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-    
-    }//GEN-LAST:event_botonEliminarSucursalActionPerformed
-
     private void atrasConsultarModificarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarModificarCaminosActionPerformed
         panelConsultarModificarCaminos.setVisible(false);
         panelPrincipal.setVisible(true);
@@ -1187,10 +1185,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void botonModificarConsultarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarConsultarCaminosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonModificarConsultarCaminosActionPerformed
-
-    private void botonEliminarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarCaminosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonEliminarCaminosActionPerformed
 
     private void atrasConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarInventarioActionPerformed
         panelConsultarInventario.setVisible(false);
@@ -1245,6 +1239,14 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void TFProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFProductoActionPerformed
+
+    private void botonEliminarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarSucursalActionPerformed
+        Object selecionado = cbConsultar.getSelectedItem();
+        String StringSeleccionado = String.valueOf(selecionado);
+
+        JOptionPane.showConfirmDialog(panelConsultarModificarSocursal,"¿Desea eliminar la sucursal?", "Eliminar",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_botonEliminarSucursalActionPerformed
   public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1272,7 +1274,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton botonBuscarSucursal;
     private javax.swing.JButton botonCamino;
     private javax.swing.JButton botonCrearInventario;
-    private javax.swing.JButton botonEliminarCaminos;
     private javax.swing.JButton botonEliminarInventario;
     private javax.swing.JButton botonEliminarSucursal;
     private javax.swing.JButton botonGenerarReporte;

@@ -5,15 +5,14 @@ import java.util.*;
 public class Grafo{
 	public LinkedList <nodoEsp> SuperMercados;  //Lista de Supermercados
 
-
 	//Constructor del grafo
 	public Grafo(){
             this.SuperMercados = new LinkedList<nodoEsp>();
 	}
 
 	//Método para agregar un vértice al grafo
-	public void agregarSuperMercado(String s){
-            SuperMercados.add(new nodoEsp(s));  
+	public void agregarSuperMercado(String nombreSucursal, String cantEmpleados){
+            SuperMercados.add(new nodoEsp( nombreSucursal,  cantEmpleados));  
 	}
 
 	//Método para agregar una arista al grafo
@@ -22,9 +21,9 @@ public class Grafo{
 	}
 
 	//Método para buscar un vértice en la lista de vertices del grafo según el dato indicado
-	public nodoEsp buscarSuperMercado(String s){
+	public nodoEsp buscarSuperMercado(String nombre){
             for(int cont = 0; cont < this.SuperMercados.size(); cont++){
-                if(this.SuperMercados.get(cont).SuperM == s)  
+                if(this.SuperMercados.get(cont).nombreSuperMercado == nombre)  
                     return this.SuperMercados.get(cont);
             }
             return null;
@@ -45,7 +44,7 @@ public class Grafo{
 	public nodoEsp buscarSuperMercadoSinvicitar(){
 
             for(int buscador = 0; buscador < this.SuperMercados.size(); buscador++){
-                if(!this.SuperMercados.get(buscador).Indicador ){ 
+                if(!this.SuperMercados.get(buscador).IndicadorVisitado ){ 
                     return this.SuperMercados.get(buscador);
                 }
             }
@@ -57,9 +56,9 @@ public class Grafo{
             nodoEsp actual;
             for(int imprimir = 0; imprimir < this.SuperMercados.size(); imprimir++){
                 actual = SuperMercados.get(imprimir);
-                System.out.println(">>> Super Mercado : "+actual.SuperM);
+                System.out.println(">>> Super Mercado : "+actual.nombreSuperMercado);
                 for(int ruta = 0; ruta < actual.Rutas.size(); ruta++){
-                        System.out.println("\n>>> Super Mercado :"+actual.SuperM+ "\n>>> Con destino a : "+actual.Rutas.get(ruta).Ruta + "\n>>> Con distancia de : "+actual.Rutas.get(ruta).Distancia+"Km"+"\n>>> Con una  Duracion de : " + actual.Rutas.get(ruta).Tiempo+"min");
+                        System.out.println("\n>>> Super Mercado :"+actual.nombreSuperMercado + "\n>>> Con destino a : "+actual.Rutas.get(ruta).Ruta + "\n>>> Con distancia de : "+actual.Rutas.get(ruta).Distancia+"Km"+"\n>>> Con una  Duracion de : " + actual.Rutas.get(ruta).Tiempo+"min");
                 }
             }
 	}
@@ -69,7 +68,7 @@ public class Grafo{
 	public void eliminarSuperMercado(String s){
             this.SuperMercados.remove(buscarSuperMercado(s)); 
             for(int i = 0; i < SuperMercados.size(); i++)
-                eliminarRutas(SuperMercados.get(i).SuperM, s);
+                eliminarRutas(SuperMercados.get(i).nombreSuperMercado, s);
 	}
 
 	//Eliminaremos la ruta 
@@ -98,12 +97,12 @@ public class Grafo{
 
 		while(actual != null) 
 		{
-			if(!actual.Indicador){
-				System.out.print(actual.SuperM + " "); 
-				actual.Indicador = true;
+			if(!actual.IndicadorVisitado){
+				System.out.print(actual.nombreSuperMercado + " "); 
+				actual.IndicadorVisitado = true;
 			}
 			for(int prof = 0; prof < actual.Rutas.size(); prof++){
-				if(! buscarSuperMercado(actual.Rutas.get(prof).Ruta).Indicador) 
+				if(! buscarSuperMercado(actual.Rutas.get(prof).Ruta).IndicadorVisitado) 
 					AlgoritmoProf(actual.Rutas.get(prof).Ruta); 
 			}
 			actual = buscarSuperMercadoSinvicitar();
@@ -117,25 +116,25 @@ public class Grafo{
             System.out.println("Este es el recorrido de anchura");
             actual = buscarSuperMercado(inicial);
             while(actual != null) {
-                if(!actual.Indicador){
+                if(!actual.IndicadorVisitado){
                     System.out.print(actual.Rutas + " "); 
-                    actual.Indicador = true; //Indica que ya fue vicitado
+                    actual.IndicadorVisitado = true; //Indica que ya fue vicitado
                     Cola.add(actual);}
                
                 for(int anch = 0; anch < actual.Rutas.size(); anch++){
-                    if(!buscarSuperMercado(actual.Rutas.get(anch).Ruta).Indicador){
+                    if(!buscarSuperMercado(actual.Rutas.get(anch).Ruta).IndicadorVisitado){
                         System.out.print(actual.Rutas.get(anch).Ruta + " ");  
                         Cola.add(buscarSuperMercado(actual.Rutas.get(anch).Ruta)); 
-                        buscarSuperMercado(actual.Rutas.get(anch).Ruta).Indicador = true;  
+                        buscarSuperMercado(actual.Rutas.get(anch).Ruta).IndicadorVisitado = true;  
                     }
                 }
                 while(Cola.size() > 0){
                     nodoEsp auxiliar;
                     for(int cont = 0; cont < Cola.getFirst().Rutas.size(); cont++){
                         auxiliar = buscarSuperMercado(Cola.getFirst().Rutas.get(cont).Ruta);
-                        if(auxiliar.Indicador){ 
-                            System.out.print(auxiliar.Indicador + " "); 
-                            auxiliar.Indicador = true;	
+                        if(auxiliar.IndicadorVisitado){ 
+                            System.out.print(auxiliar.IndicadorVisitado + " "); 
+                            auxiliar.IndicadorVisitado = true;	
                             Cola.add(auxiliar);}}
                     Cola.removeFirst();}
             actual = buscarSuperMercadoSinvicitar();}
