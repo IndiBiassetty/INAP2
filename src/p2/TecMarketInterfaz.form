@@ -180,11 +180,11 @@
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="lbSucursal" min="-2" pref="26" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cbSucursal" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonBuscarSucursal" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cbSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonBuscarSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="lbCaminos" min="-2" pref="26" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -205,7 +205,7 @@
                       <Component id="cbReporte" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botonGenerarReporte" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
                   <Component id="lbCliente" min="-2" pref="26" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="botonAtenderCliente" min="-2" max="-2" attributes="0"/>
@@ -538,7 +538,8 @@
                               <Component id="botonEliminarSucursal" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="scrollConsultarSucursal" alignment="0" max="32767" attributes="0"/>
+                          <Component id="scrollConsultarSucursalInfo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="scrollConsultarSucursalInventario" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -557,8 +558,10 @@
                           <Component id="botonEliminarSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="scrollConsultarSucursal" min="-2" pref="195" max="-2" attributes="0"/>
-                      <EmptySpace pref="165" max="32767" attributes="0"/>
+                      <Component id="scrollConsultarSucursalInfo" min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="scrollConsultarSucursalInventario" min="-2" pref="94" max="-2" attributes="0"/>
+                      <EmptySpace pref="266" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -598,14 +601,14 @@
                 <Property name="text" type="java.lang.String" value="Consultar sucursal"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="scrollConsultarSucursal">
+            <Container class="javax.swing.JScrollPane" name="scrollConsultarSucursalInfo">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextPane" name="TPaneConsultarSucursales">
+                <Component class="javax.swing.JTextPane" name="TPaneConsultarSucursalesInfo">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
@@ -628,6 +631,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarSucursalActionPerformed"/>
               </Events>
             </Component>
+            <Container class="javax.swing.JScrollPane" name="scrollConsultarSucursalInventario">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextPane" name="TPaneConsultarSucursalesInvent">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

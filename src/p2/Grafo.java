@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Grafo{
 	public LinkedList <nodoEsp> SuperMercados;  //Lista de Supermercados
+        public String enter = "\n";
 
 	//Constructor del grafo
 	public Grafo(){
@@ -12,7 +13,7 @@ public class Grafo{
 
 	//Método para agregar un vértice al grafo
 	public void agregarSuperMercado(String nombreSucursal, String cantEmpleados){
-            SuperMercados.add(new nodoEsp( nombreSucursal,  cantEmpleados));  
+            SuperMercados.add(new nodoEsp( nombreSucursal, cantEmpleados ));  //Modificar cuando se meta el arbol, va nulo
 	}
 
 	//Método para agregar una arista al grafo
@@ -20,6 +21,16 @@ public class Grafo{
             buscarSuperMercado(Inicio).Rutas.add(new nodoN(Final, Distancia ,Tiempo));  
 	}
 
+        /*Metodo para modificar la informacion del supermercado
+        public nodoEsp modificarInformacionSucursal(String nombreSupermercado, String nuevoNombreSucursal, String nuevaCantEmpleados){
+            for(int cont = 0; cont < this.SuperMercados.size(); cont++){
+                if(this.SuperMercados.get(cont).nombreSuperMercado == nombreSupermercado)  
+                    return this.SuperMercados.get(cont);
+            }
+            return null;    
+        }
+        */
+        
 	//Método para buscar un vértice en la lista de vertices del grafo según el dato indicado
 	public nodoEsp buscarSuperMercado(String nombre){
             for(int cont = 0; cont < this.SuperMercados.size(); cont++){
@@ -62,8 +73,21 @@ public class Grafo{
                 }
             }
 	}
-      
-
+      //Metodo de prueba para ver como imprimir el inventario de productos
+	public String imprimeGrafoprieba(){
+            nodoEsp actual;
+            String cosas = "";
+            for(int imprimir = 0; imprimir < this.SuperMercados.size(); imprimir++){
+                actual = SuperMercados.get(imprimir);
+                cosas = cosas+ enter + actual.nombreSuperMercado;
+            }
+            return cosas;
+	}
+        
+        
+        
+        
+        
 	//Para eliminar un Super Mercado y sus  Rutas
 	public void eliminarSuperMercado(String nombre){
             this.SuperMercados.remove(buscarSuperMercado(nombre)); 
