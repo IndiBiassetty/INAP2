@@ -62,13 +62,13 @@ public class Grafo{
                 }
             }
 	}
-
+      
 
 	//Para eliminar un Super Mercado y sus  Rutas
-	public void eliminarSuperMercado(String s){
-            this.SuperMercados.remove(buscarSuperMercado(s)); 
+	public void eliminarSuperMercado(String nombre){
+            this.SuperMercados.remove(buscarSuperMercado(nombre)); 
             for(int i = 0; i < SuperMercados.size(); i++)
-                eliminarRutas(SuperMercados.get(i).nombreSuperMercado, s);
+                eliminarRutas(SuperMercados.get(i).nombreSuperMercado, nombre);
 	}
 
 	//Eliminaremos la ruta 

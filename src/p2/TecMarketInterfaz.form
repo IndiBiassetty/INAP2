@@ -74,7 +74,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelConsultarInventario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="132" max="32767" attributes="0"/>
+                  <EmptySpace pref="321" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
@@ -94,7 +94,7 @@
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                  <Component id="panelConsultarModificarCaminos" min="-2" pref="558" max="-2" attributes="0"/>
+                  <Component id="panelConsultarModificarCaminos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="180" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -205,7 +205,7 @@
                       <Component id="cbReporte" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botonGenerarReporte" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
                   <Component id="lbCliente" min="-2" pref="26" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="botonAtenderCliente" min="-2" max="-2" attributes="0"/>
@@ -529,7 +529,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelNombreSucursal1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="cbConsultar" min="-2" pref="212" max="-2" attributes="0"/>
+                              <Component id="cbConsultarSucursal" min="-2" pref="212" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="botonVerConsultar" min="-2" pref="81" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -551,7 +551,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelNombreSucursal1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="cbConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbConsultarSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonVerConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonModificarConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonEliminarSucursal" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -580,17 +580,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerConsultarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbConsultar">
+            <Component class="javax.swing.JComboBox" name="cbConsultarSucursal">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbConsultarSucursalActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelConsultar">
               <Properties>

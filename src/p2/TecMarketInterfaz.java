@@ -20,6 +20,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     public String variabImprimir = "";
     public String variabImprimir2 = "";
     public String variabImprimir3 = "";
+    public String tab = "\t";
+    public String enter = "\n";
     
     public TecMarketInterfaz() {
         initComponents();
@@ -175,7 +177,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         panelConCosasConsultar = new javax.swing.JPanel();
         labelNombreSucursal1 = new javax.swing.JLabel();
         botonVerConsultar = new javax.swing.JButton();
-        cbConsultar = new javax.swing.JComboBox();
+        cbConsultarSucursal = new javax.swing.JComboBox();
         labelConsultar = new javax.swing.JLabel();
         scrollConsultarSucursal = new javax.swing.JScrollPane();
         TPaneConsultarSucursales = new javax.swing.JTextPane();
@@ -468,7 +470,11 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
 
-        cbConsultar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbConsultarSucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbConsultarSucursalActionPerformed(evt);
+            }
+        });
 
         labelConsultar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labelConsultar.setText("Consultar sucursal");
@@ -502,7 +508,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addGroup(panelConCosasConsultarLayout.createSequentialGroup()
                         .addComponent(labelNombreSucursal1)
                         .addGap(31, 31, 31)
-                        .addComponent(cbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbConsultarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(botonVerConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -520,7 +526,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(panelConCosasConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNombreSucursal1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbConsultarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonVerConsultar)
                     .addComponent(botonModificarConsultar)
                     .addComponent(botonEliminarSucursal))
@@ -1022,6 +1028,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                  }
                  else{
                      //Si los espacios estan llenos crea el vertice
+                     //Se llama al metodo de agregar en grafo
                      cadenaSupermercados.agregarSuperMercado(campoNombre.getText(), campoCantEmple.getText());
                      cadenaSupermercados.imprimeGrafo();
                      JOptionPane.showMessageDialog(panelPrincipal, "Se ha registrado la sucursal correctamente");
@@ -1033,6 +1040,18 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         else{
             panelConsultarModificarSocursal.setVisible(true);
             panelPrincipal.setVisible(false);
+            	
+            nodoEsp actual;
+            for(int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++){
+                actual = cadenaSupermercados.SuperMercados.get(imprimir);
+                
+                String nomSucurs = actual.nombreSuperMercado;    
+
+                cbConsultarSucursal.addItem(nomSucurs); //revisar
+                
+            }
+            
+	
         }
         
               
@@ -1157,10 +1176,24 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void atrasConsultarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarModificarActionPerformed
         panelConsultarModificarSocursal.setVisible(false);
         panelPrincipal.setVisible(true);
+        cbConsultarSucursal.removeAllItems();
     }//GEN-LAST:event_atrasConsultarModificarActionPerformed
 
     private void botonVerConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerConsultarActionPerformed
-  
+        Object selecionado = cbConsultarSucursal.getSelectedItem();
+        String StringSeleccionado = String.valueOf(selecionado);
+
+       
+        cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
+        TPaneProducto.setText("Nombre de la sucursal: "+ tab +cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado+ enter +"Cantidad de empleados:"+ tab +cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados );
+        
+        
+        TFProducto.setText(null);
+        
+        cadenaSupermercados.imprimeGrafo();
+        
+       
+                            
     }//GEN-LAST:event_botonVerConsultarActionPerformed
 
     private void botonModificarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarConsultarActionPerformed
@@ -1182,7 +1215,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     
     if (mensajeModificar != JOptionPane.CANCEL_OPTION) {
         TPaneConsultarSucursales.setText(null);
-        System.out.println("fgdfsgdsgds");
         //Si se agrega una variable para meter los datos hay que resetearla    
     }
     
@@ -1191,6 +1223,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void atrasConsultarModificarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarModificarCaminosActionPerformed
         panelConsultarModificarCaminos.setVisible(false);
         panelPrincipal.setVisible(true);
+        
     }//GEN-LAST:event_atrasConsultarModificarCaminosActionPerformed
 
     private void botonVerConsultarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerConsultarCaminosActionPerformed
@@ -1256,12 +1289,29 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_TFProductoActionPerformed
 
     private void botonEliminarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarSucursalActionPerformed
-        Object selecionado = cbConsultar.getSelectedItem();
+        Object selecionado = cbConsultarSucursal.getSelectedItem();
         String StringSeleccionado = String.valueOf(selecionado);
 
-        JOptionPane.showConfirmDialog(panelConsultarModificarSocursal,"¿Desea eliminar la sucursal?", "Eliminar",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        int msj= JOptionPane.showConfirmDialog(panelConsultarModificarSocursal,"¿Desea eliminar la sucursal?", "Eliminar",JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        
+        if (JOptionPane.CANCEL_OPTION != msj){
+            if (cbConsultarSucursal.getSelectedItem()== null){
+                JOptionPane.showMessageDialog(panelPrincipal, "Operación inválida, No hay sucursales registradas en el sistema");
 
+            }
+            else{
+                cadenaSupermercados.eliminarSuperMercado(StringSeleccionado);
+                cadenaSupermercados.imprimeGrafo();
+                cbConsultarSucursal.removeItem(selecionado);
+                JOptionPane.showMessageDialog(panelPrincipal, "Se ha eliminado la sucursal correctamente");
+
+            }
+        }
     }//GEN-LAST:event_botonEliminarSucursalActionPerformed
+
+    private void cbConsultarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConsultarSucursalActionPerformed
+        
+    }//GEN-LAST:event_cbConsultarSucursalActionPerformed
   public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1300,9 +1350,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton botonVerConsultarCaminos;
     private javax.swing.JButton botonVerConsultarInventario;
     private javax.swing.JComboBox cbCamino;
-    private javax.swing.JComboBox cbConsultar;
     private javax.swing.JComboBox cbConsultarCaminos;
     private javax.swing.JComboBox cbConsultarInventario;
+    private javax.swing.JComboBox cbConsultarSucursal;
     private javax.swing.JComboBox cbInventario;
     private javax.swing.JComboBox cbMenorDistanciaTiempo;
     private javax.swing.JComboBox cbReporte;
