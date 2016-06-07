@@ -5,6 +5,7 @@ import java.util.*;
 public class Grafo{
 	public LinkedList <nodoEsp> SuperMercados;  //Lista de Supermercados
         public String enter = "\n";
+        public String tab = "\t";
 
 	//Constructor del grafo
 	public Grafo(){
@@ -20,16 +21,6 @@ public class Grafo{
 	public void agregarRutas(String Inicio, String Final, int Distancia, int Tiempo){
             buscarSuperMercado(Inicio).Rutas.add(new nodoN(Final, Distancia ,Tiempo));  
 	}
-
-        /*Metodo para modificar la informacion del supermercado
-        public nodoEsp modificarInformacionSucursal(String nombreSupermercado, String nuevoNombreSucursal, String nuevaCantEmpleados){
-            for(int cont = 0; cont < this.SuperMercados.size(); cont++){
-                if(this.SuperMercados.get(cont).nombreSuperMercado == nombreSupermercado)  
-                    return this.SuperMercados.get(cont);
-            }
-            return null;    
-        }
-        */
         
 	//Método para buscar un vértice en la lista de vertices del grafo según el dato indicado
 	public nodoEsp buscarSuperMercado(String nombre){
@@ -69,24 +60,24 @@ public class Grafo{
                 actual = SuperMercados.get(imprimir);
                 System.out.println(">>> Super Mercado imprimido : "+actual.nombreSuperMercado+", Cantidad de empleados: "+ actual.numEmpleados);
                 for(int ruta = 0; ruta < actual.Rutas.size(); ruta++){
-                        System.out.println("\n>>> Super Mercado :"+actual.nombreSuperMercado + "\n>>> Con destino a : "+actual.Rutas.get(ruta).Ruta + "\n>>> Con distancia de : "+actual.Rutas.get(ruta).Distancia+"Km"+"\n>>> Con una  Duracion de : " + actual.Rutas.get(ruta).Tiempo+"min");
+                        System.out.println(">>> Super Mercado :"+actual.nombreSuperMercado + "\n>>> Con destino a : "+actual.Rutas.get(ruta).Ruta + "\n>>> Con distancia de : "+actual.Rutas.get(ruta).Distancia+"Km"+"\n>>> Con una  Duracion de : " + actual.Rutas.get(ruta).Tiempo+"min"+ enter);
                 }
             }
 	}
       //Metodo de prueba para ver como imprimir el inventario de productos
-	public String imprimeGrafoprieba(){
+	public String imprimirRutaDeterminada(String sucursal){
             nodoEsp actual;
-            String cosas = "";
+            String varAux = "";
             for(int imprimir = 0; imprimir < this.SuperMercados.size(); imprimir++){
                 actual = SuperMercados.get(imprimir);
-                cosas = cosas+ enter + actual.nombreSuperMercado;
+                if(actual.nombreSuperMercado == sucursal){
+                    for(int ruta = 0; ruta < actual.Rutas.size(); ruta++){
+                       varAux= varAux+(enter+">>> Destino: "+tab+tab+actual.Rutas.get(ruta).Ruta + enter +"Distancia: "+tab+tab+tab+actual.Rutas.get(ruta).Distancia+" Km"+enter+"Duración: " +tab+tab+tab+ actual.Rutas.get(ruta).Tiempo+" Min"+ enter);
+                    }
+                }
             }
-            return cosas;
-	}
-        
-        
-        
-        
+           return varAux; 
+	}     
         
 	//Para eliminar un Super Mercado y sus  Rutas
 	public void eliminarSuperMercado(String nombre){

@@ -45,6 +45,22 @@ public class nodoEsp{
     public void setRutas(LinkedList<nodoN> Rutas) {
         this.Rutas = Rutas;
     }
+
+    public String getNombreSuperMercado() {
+        return nombreSuperMercado;
+    }
+
+    public String getNumEmpleados() {
+        return numEmpleados;
+    }
+
+    public boolean isIndicadorVisitado() {
+        return IndicadorVisitado;
+    }
+
+    public LinkedList<nodoN> getRutas() {
+        return Rutas;
+    }
         
         
 

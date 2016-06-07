@@ -129,21 +129,7 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cbSucursal" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <Component id="lbCaminos" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="botonCrearInventario" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="botonCamino" min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="botonBuscarSucursal" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="botonGenerarReporte" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Component id="lbSucursal" min="-2" pref="104" max="-2" attributes="0"/>
-                          <Component id="cbCamino" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                           <Component id="lbInventarios" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="cbInventario" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
                           <Component id="lbReportes" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
@@ -153,6 +139,20 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="titulo" min="-2" pref="767" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbSucursal" min="-2" pref="153" max="-2" attributes="0"/>
+                                  <Component id="lbCaminos" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                  <Component id="cbCamino" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="botonCamino" min="-2" pref="78" max="-2" attributes="0"/>
+                                  <Component id="botonCrearInventario" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="botonBuscarSucursal" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                                  <Component id="botonGenerarReporte" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -411,10 +411,9 @@
         <Component class="javax.swing.JComboBox" name="cbCamino">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="2">
                 <StringItem index="0" value="Agregar camino"/>
                 <StringItem index="1" value="Consultar/Modificar"/>
-                <StringItem index="2" value="Eliminar"/>
               </StringArray>
             </Property>
           </Properties>
@@ -724,27 +723,27 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelConsultarCaminos" min="-2" pref="258" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="scrollConsultarCaminos" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="scrollConsultarCaminos" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelConsultarCaminos" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="labelNombreSucursal3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="cbConsultarCaminos" min="-2" pref="212" max="-2" attributes="0"/>
-                              <EmptySpace pref="116" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Component id="botonVerConsultarCaminos" min="-2" pref="81" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="botonModificarConsultarCaminos" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="botonEliminarConsultarCaminos" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -758,6 +757,7 @@
                           <Component id="cbConsultarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonVerConsultarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botonModificarConsultarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonEliminarConsultarCaminos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="scrollConsultarCaminos" min="-2" pref="335" max="-2" attributes="0"/>
@@ -786,12 +786,7 @@
             <Component class="javax.swing.JComboBox" name="cbConsultarCaminos">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
             </Component>
@@ -823,6 +818,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarConsultarCaminosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonEliminarConsultarCaminos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarConsultarCaminosActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
