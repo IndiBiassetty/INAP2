@@ -1038,9 +1038,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                      //Si los espacios estan llenos crea el vertice
                     //Se llama al metodo de agregar en grafo
                     cadenaSupermercados.agregarSuperMercado(campoNombre.getText(), campoCantEmple.getText());
-                    cadenaSupermercados.imprimeGrafo();
+                    //cadenaSupermercados.imprimeGrafo();
                     JOptionPane.showMessageDialog(panelPrincipal, "Se ha registrado la sucursal correctamente");
-
                 }
             }
 
@@ -1058,12 +1057,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 nomSucurs = actual.nombreSuperMercado;
 
                 cbConsultarSucursal.addItem(nomSucurs); //revisar
-
             }
-
         }
-
-
     }//GEN-LAST:event_botonBuscarSucursalActionPerformed
 
     private void botonCaminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminoActionPerformed
@@ -1228,7 +1223,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         TPaneConsultarSucursalesInfo.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + ">> Cantidad de empleados:" + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados);//Falta agregarle lo de inventario
         //Aqui va el inventario esto es una prueba donde se imprimen
         //la lista de supermercados para ver si sirve
-        cadenaSupermercados.imprimeGrafo();
+        //cadenaSupermercados.imprimeGrafo();
 
     }//GEN-LAST:event_botonVerConsultarActionPerformed
 
@@ -1290,7 +1285,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                         cbConsultarSucursal.addItem(nomSucurs); //revisar
                     }
                     
-                    cadenaSupermercados.imprimeGrafo();
                     JOptionPane.showMessageDialog(panelPrincipal, "Se ha modificado la información de la sucursal correctamente");
                 }
         }
@@ -1318,7 +1312,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVerConsultarCaminosActionPerformed
 
     private void botonModificarConsultarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarConsultarCaminosActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_botonModificarConsultarCaminosActionPerformed
 
     private void atrasConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarInventarioActionPerformed
@@ -1387,8 +1381,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
 
             } else {
                 cadenaSupermercados.eliminarSuperMercado(StringSeleccionado);
-                cadenaSupermercados.imprimeGrafo();
                 cbConsultarSucursal.removeItem(selecionado);
+                TPaneConsultarSucursalesInfo.setText(null);
+                TPaneConsultarSucursalesInvent.setText(null);
                 JOptionPane.showMessageDialog(panelPrincipal, "Se ha eliminado la sucursal correctamente");
 
             }
@@ -1400,7 +1395,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_cbConsultarSucursalActionPerformed
 
     private void botonEliminarConsultarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarConsultarCaminosActionPerformed
-        Object selecionado = cbConsultarSucursal.getSelectedItem();
+
+        Object selecionado = cbConsultarCaminos.getSelectedItem();
         String StringSeleccionado = String.valueOf(selecionado);
         
         JComboBox cbEliminarCaminoLlegada = new JComboBox();   
@@ -1410,24 +1406,33 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         panelMsjEliminar.add(cbEliminarCaminoLlegada);
 
         //Este metodo carga el combobox de eliminar caminos
-        //Se necesita revisar ya que no carga nada
-             nodoEsp actual;
-            String varAux = "";
-            for(int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++){
-                actual = cadenaSupermercados.SuperMercados.get(imprimir);
-                if(actual.nombreSuperMercado == StringSeleccionado){
-                    for(int ruta = 0; ruta < actual.Rutas.size(); ruta++){
-                       cbEliminarCaminoLlegada.addItem(actual.Rutas.get(ruta).Ruta);
-                       System.out.println(actual.Rutas.get(ruta).Ruta);
-                    }
+     
+        nodoEsp actual;
+        for(int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++){
+            actual = cadenaSupermercados.SuperMercados.get(imprimir);
+            if(actual.nombreSuperMercado == StringSeleccionado){
+                for(int ruta = 0; ruta < actual.Rutas.size(); ruta++){
+                   cbEliminarCaminoLlegada.addItem(actual.Rutas.get(ruta).Ruta);//Asi se accede a la lista con las rutas
                 }
             }
-          
-                
-                //
-            
-        int mensajeEliminarSucursal = JOptionPane.showConfirmDialog(panelPrincipal, panelMsjEliminar, "Eliminar sucursal", JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        }
+                     
+        int mensajeEliminarCamino = JOptionPane.showConfirmDialog(panelConsultarModificarCaminos,panelMsjEliminar, "Eliminar camino", JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        
+        if (JOptionPane.CANCEL_OPTION != mensajeEliminarCamino) {
+            if (cbEliminarCaminoLlegada.getSelectedItem() == null) {
+                JOptionPane.showMessageDialog(panelPrincipal, "Operación inválida, La sucursal seleccionada no tiene caminos registrados en el sistema");
 
+            } else {
+                Object caminoElimin = cbEliminarCaminoLlegada.getSelectedItem();
+                String StringcaminoElimin = String.valueOf(caminoElimin);
+                cadenaSupermercados.eliminarRutas(StringSeleccionado, StringcaminoElimin);
+                cbEliminarCaminoLlegada.removeItem(StringcaminoElimin);
+                TPaneConsultarCaminos.setText(null);
+                JOptionPane.showMessageDialog(panelPrincipal, "Se ha eliminado la ruta correctamente");
+
+            }
+        }
     }//GEN-LAST:event_botonEliminarConsultarCaminosActionPerformed
     public static void main(String args[]) {
 
