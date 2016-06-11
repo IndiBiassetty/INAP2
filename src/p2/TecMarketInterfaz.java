@@ -53,7 +53,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         botonBuscarSucursal.setBounds(170, 150, 60, 24);
         //Insertar camino
         lbCaminos.setBounds(20, 200, 100, 30);
-        cbCamino.setBounds(20, 230, 140, 24);
+        cbCaminoPantallaPrincipal.setBounds(20, 230, 140, 24);
         botonCamino.setBounds(170, 230, 60, 24);
         //Crear inventario
         lbInventarios.setBounds(20, 280, 110, 30);
@@ -164,7 +164,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         lbCliente = new javax.swing.JLabel();
         lbReportes = new javax.swing.JLabel();
         cbSucursal = new javax.swing.JComboBox();
-        cbCamino = new javax.swing.JComboBox();
+        cbCaminoPantallaPrincipal = new javax.swing.JComboBox();
         cbInventario = new javax.swing.JComboBox();
         cbReporte = new javax.swing.JComboBox();
         panelConsultarModificarSocursal = new javax.swing.JPanel();
@@ -352,7 +352,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
 
-        cbCamino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Agregar camino", "Consultar/Modificar" }));
+        cbCaminoPantallaPrincipal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Agregar camino", "Consultar/Modificar" }));
 
         cbInventario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Insertar producto", "Consultar/Modificar" }));
         cbInventario.addActionListener(new java.awt.event.ActionListener() {
@@ -385,7 +385,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                             .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cbSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbCaminoPantallaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(37, 37, 37)
                             .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(botonCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -419,7 +419,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 .addComponent(lbCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbCamino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbCaminoPantallaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonCamino))
                 .addGap(40, 40, 40)
                 .addComponent(lbInventarios, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1068,7 +1068,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         JComboBox sucursalLlegada = new JComboBox();
 
         //Metodo de agregar camino
-        if (cbCamino.getSelectedItem() == "Agregar camino") {
+        if (cbCaminoPantallaPrincipal.getSelectedItem() == "Agregar camino") {
 
             JTextField campoDistKm = new JTextField();
             JTextField campoTiempo = new JTextField();
@@ -1099,7 +1099,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             
             panelMsjAgregarCamino.add(new JLabel("Distancia en km:"));
             panelMsjAgregarCamino.add(campoDistKm);
-            panelMsjAgregarCamino.add(new JLabel("Tiempo de recorrido:"));
+            panelMsjAgregarCamino.add(new JLabel("Tiempo de recorrido en Min:"));
             panelMsjAgregarCamino.add(campoTiempo);
 
             int mensajeAgregarCamino = JOptionPane.showConfirmDialog(panelPrincipal, panelMsjAgregarCamino, "Agregar camino", JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -1312,9 +1312,97 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVerConsultarCaminosActionPerformed
 
     private void botonModificarConsultarCaminosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarConsultarCaminosActionPerformed
+        Object selecionado = cbConsultarCaminos.getSelectedItem();
+        String StringSeleccionado = String.valueOf(selecionado);
+        
+        JComboBox cbCaminoModificarInfo = new JComboBox(); 
 
+        JTextField campoDistKm = new JTextField();
+        JTextField campoTiempo = new JTextField();
+  
+        JPanel panelMsjAgregarCamino = new JPanel(new GridLayout(0, 1));
+        panelMsjAgregarCamino.add(new JLabel("Seleccione un camino:"));
+        panelMsjAgregarCamino.add(cbCaminoModificarInfo);
+        panelMsjAgregarCamino.add(new JLabel("Distancia en km:"));
+        panelMsjAgregarCamino.add(campoDistKm);
+        panelMsjAgregarCamino.add(new JLabel("Tiempo de recorrido:"));
+        panelMsjAgregarCamino.add(campoTiempo);
+        
+        nodoEsp actual;
+        for(int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++){
+            actual = cadenaSupermercados.SuperMercados.get(imprimir);
+            if(actual.nombreSuperMercado == StringSeleccionado){
+                for(int ruta = 0; ruta < actual.Rutas.size(); ruta++){
+                   cbCaminoModificarInfo.addItem(actual.Rutas.get(ruta).Ruta);//Asi se accede a la lista con las rutas
+                }
+            }
+        }
+
+        int msjModificarCamino = JOptionPane.showConfirmDialog(panelPrincipal, panelMsjAgregarCamino, "Modificar información de caminos", JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+        //Estas variables son para validar que los campos no esten vacios.
+        String varDistanciaKm = campoDistKm.getText();
+        String varDuracion = campoTiempo.getText();
+
+
+        if (JOptionPane.CANCEL_OPTION != msjModificarCamino) {
+            TPaneConsultarCaminos.setText(null);
+ 
+            //Valida si los espacios estan llenos
+            varDistanciaKm = varDistanciaKm.replaceAll(" ", "");
+            varDuracion = varDuracion.replaceAll(" ", "");
+            if (varDistanciaKm.length() == 0 & varDuracion.length() == 0) {
+                JOptionPane.showMessageDialog(panelPrincipal, "Operación Invalida, no ha ingresado datos que modificar");
+            }
+            Object rutaElegida = cbConsultarCaminos.getSelectedItem();
+            String StringrutaElegida = String.valueOf(rutaElegida); 
+            
+            if (StringrutaElegida.length()== 0) {
+                JOptionPane.showMessageDialog(panelPrincipal, "Operación Invalida, La sucursal no tiene rutas registradas");
+            }
+            else{ 
+                Object caminoSelecionado = cbCaminoModificarInfo.getSelectedItem();
+                String StringCaminoSeleccionado = String.valueOf(caminoSelecionado);
+                if(varDistanciaKm.length() != 0){
+                    
+                    String stringNumdeKm = campoDistKm.getText();
+                    int cantKmEntreSucursales = Integer.parseInt(stringNumdeKm);
+                    
+                    //Metodo para modificar la informacion de una ruta
+                    nodoEsp current;
+                    for(int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++){
+                        current = cadenaSupermercados.SuperMercados.get(imprimir);
+                        if(current.nombreSuperMercado == StringSeleccionado){
+                            for(int ruta = 0; ruta < current.Rutas.size(); ruta++){
+                               if (StringCaminoSeleccionado == current.Rutas.get(ruta).Ruta){
+                                   current.Rutas.get(ruta).setDistancia(cantKmEntreSucursales);
+                               }
+                            }
+                        }
+                    }
+                if (varDuracion.length() != 0) {
+
+                    String stringTiempo = campoTiempo.getText();
+                    int cantTiempoEntreSucursales = Integer.parseInt(stringTiempo);
+                    
+                    nodoEsp current2;
+                    for(int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++){
+                        current2 = cadenaSupermercados.SuperMercados.get(imprimir);
+                        if(current2.nombreSuperMercado == StringSeleccionado){
+                            for(int ruta = 0; ruta < current2.Rutas.size(); ruta++){
+                               if (StringCaminoSeleccionado == current2.Rutas.get(ruta).Ruta){
+                                   current2.Rutas.get(ruta).setTiempo(cantTiempoEntreSucursales);
+                               }
+                            }
+                        }
+                    }
+                }
+                JOptionPane.showMessageDialog(panelPrincipal, "Se ha modificado la informacion de los caminos correctamente");
+            }
+            }  
+        }
     }//GEN-LAST:event_botonModificarConsultarCaminosActionPerformed
-
+            
     private void atrasConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarInventarioActionPerformed
         panelConsultarInventario.setVisible(false);
         panelPrincipal.setVisible(true);
@@ -1406,7 +1494,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         panelMsjEliminar.add(cbEliminarCaminoLlegada);
 
         //Este metodo carga el combobox de eliminar caminos
-     
         nodoEsp actual;
         for(int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++){
             actual = cadenaSupermercados.SuperMercados.get(imprimir);
@@ -1426,6 +1513,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             } else {
                 Object caminoElimin = cbEliminarCaminoLlegada.getSelectedItem();
                 String StringcaminoElimin = String.valueOf(caminoElimin);
+                
                 cadenaSupermercados.eliminarRutas(StringSeleccionado, StringcaminoElimin);
                 cbEliminarCaminoLlegada.removeItem(StringcaminoElimin);
                 TPaneConsultarCaminos.setText(null);
@@ -1473,7 +1561,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton botonVerConsultar;
     private javax.swing.JButton botonVerConsultarCaminos;
     private javax.swing.JButton botonVerConsultarInventario;
-    private javax.swing.JComboBox cbCamino;
+    private javax.swing.JComboBox cbCaminoPantallaPrincipal;
     private javax.swing.JComboBox cbConsultarCaminos;
     private javax.swing.JComboBox cbConsultarInventario;
     private javax.swing.JComboBox cbConsultarSucursal;

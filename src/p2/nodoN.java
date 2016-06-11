@@ -30,4 +30,16 @@ public class nodoN{
 		return "\n>>> Ruta = "+Ruta +"\n>>> Distancia a recorrer ="+Distancia+"\n>>> Tiempo de recorrido ="+Tiempo+" "+">>>";
 	}
 
+    public void setRuta(String Ruta) {
+        this.Ruta = Ruta;
+    }
+
+    public void setDistancia(int Distancia) {
+        this.Distancia = Distancia;
+    }
+
+    public void setTiempo(int Tiempo) {
+        this.Tiempo = Tiempo;
+    }
+
 }
