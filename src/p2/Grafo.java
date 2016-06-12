@@ -14,7 +14,7 @@ public class Grafo{
 
 	//Método para agregar un vértice al grafo
 	public void agregarSuperMercado(String nombreSucursal, String cantEmpleados){
-            SuperMercados.add(new nodoEsp( nombreSucursal, cantEmpleados ));  //Modificar cuando se meta el arbol, va nulo
+            SuperMercados.add(new nodoEsp( nombreSucursal, cantEmpleados ));  
 	}
 
 	//Método para agregar una arista al grafo

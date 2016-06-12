@@ -3,6 +3,8 @@
  */
 package p2;
 
+import p2.*;
+
 
 import java.util.*;
 
@@ -11,7 +13,7 @@ public class nodoEsp{
         public String numEmpleados = null;
  	public boolean  IndicadorVisitado;	//Booleano encargado de decir si el nodo de visito
  	public LinkedList <nodoN> Rutas;        //Lista de Rutas
-      //Public arbol inventario= null;          //Aqui va ir el inventario
+        public ABB inventario;          //Aqui va ir el inventario
         
         
   ///////////////Constructor//////////////
@@ -20,16 +22,17 @@ public class nodoEsp{
             numEmpleados  = null;
             IndicadorVisitado  = false;
             Rutas = new LinkedList<nodoN>();
-	}
+            inventario = new ABB();
+         }
 
 	public nodoEsp(String nombreSucursal, String cantEmpleados){
             this.nombreSuperMercado = nombreSucursal;
             this.numEmpleados = cantEmpleados;
-          //this.inventario = new arbol;   //Aqui va ir el inventario
+            this.inventario = new ABB(); 
             this.IndicadorVisitado   = false;
             this.Rutas  = new LinkedList<nodoN>();
 	}
-
+//Set de nombre, num empleados, indicador visitado y rutas
     public void setNombreSuperMercado(String nombreSuperMercado) {
         this.nombreSuperMercado = nombreSuperMercado;
     }
@@ -46,6 +49,7 @@ public class nodoEsp{
         this.Rutas = Rutas;
     }
 
+//Get de nombre, num empleados
     public String getNombreSuperMercado() {
         return nombreSuperMercado;
     }
@@ -60,6 +64,15 @@ public class nodoEsp{
 
     public LinkedList<nodoN> getRutas() {
         return Rutas;
+    }
+    
+//Set y get de Inventario
+    public ABB getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(ABB inventario) {
+        this.inventario = inventario;
     }
         
         

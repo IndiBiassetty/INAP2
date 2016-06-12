@@ -14,7 +14,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
 
 //Estructuras
     Grafo cadenaSupermercados = new Grafo();
-
+    
 //Variables globales
     public String variabImprimir = "";
     public String variabImprimir2 = "";
@@ -1221,6 +1221,13 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
 
         cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
         TPaneConsultarSucursalesInfo.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + ">> Cantidad de empleados:" + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados);//Falta agregarle lo de inventario
+        
+        if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz != null){
+           TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz.listaDeProductos.retornarProductos()); 
+        }
+        else{
+           TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+" No hay productos disponibles");
+        }
         //Aqui va el inventario esto es una prueba donde se imprimen
         //la lista de supermercados para ver si sirve
         //cadenaSupermercados.imprimeGrafo();
@@ -1283,6 +1290,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                         nomSucurs = aux.nombreSuperMercado;
 
                         cbConsultarSucursal.addItem(nomSucurs); //revisar
+                        
                     }
                     
                     JOptionPane.showMessageDialog(panelPrincipal, "Se ha modificado la información de la sucursal correctamente");

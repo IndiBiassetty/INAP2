@@ -1,24 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package arboles_ordenamiento;
+
+package p2;
+
+import p2.*;
 
 /**
  *
  * @author Andres
  */
 public class Nodo_Arbol {
-    char dato;
-    Nodo_Arbol izquierdo;
-    Nodo_Arbol derecho;
+    public char dato;
+    public Nodo_Arbol izquierdo;
+    public Nodo_Arbol derecho;
+    public listaDobleEnlazada listaDeProductos;       //lista que almacena los productos
+    
     
     public Nodo_Arbol(char datos){
         dato=datos;
         izquierdo = null;
         derecho = null;
-        
+        listaDeProductos = new listaDobleEnlazada();
         
     }
     public Nodo_Arbol getizquierdo(){

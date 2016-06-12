@@ -1,22 +1,21 @@
-package arboles_ordenamiento;
-
-
+package p2;
+import p2.*;
 
 public class ABB {
-    public Nodo_Arbol raiz;                      //raiz del arbol
-
+    public Nodo_Arbol raiz;                      //raiz del 
+    public String tab = "\t";
+    public String enter = "\n";
+    public String varTexto = "";
+    
     // Constructor de un arbol vacio
     public ABB() {                             //construye
         raiz = null;
     }
 
 
-    public boolean esVacio()           //metodo para saber si arbol esta vacio 
-            
-    {
+    public boolean esVacio(){           //metodo para saber si arbol esta vacio {
         boolean vacio = true;              //salidas booleano
-        if ( raiz != null )
-        {
+        if ( raiz != null ){
             vacio = false;
         }
         return vacio;
@@ -102,16 +101,16 @@ public class ABB {
         return existe;
     }
 
-    private Nodo_Arbol getNodo(char x)           //devuelve un nodo del arbol
+    public Nodo_Arbol getNodo(char x)           //devuelve un nodo del arbol
     {                                            //se ingresa variable y la busca para ser devuelta
         Nodo_Arbol N = null;
         if(!esVacio())
         {
-            if(buscarSiExiste(x))
-            {
+            if(buscarSiExiste(x)){
+                
                 Nodo_Arbol pivote = raiz;
-                while(pivote.dato != x)
-                {
+                
+                while(pivote.dato != x){
                     if((int)x > (int)pivote.dato)
                     {
                         pivote = pivote.derecho;
@@ -121,8 +120,10 @@ public class ABB {
                        pivote = pivote.izquierdo; 
                     }
                 }
+                N = pivote;
+                
             }
-            return N;
+            
         }
         return N;
     }
@@ -276,15 +277,21 @@ public class ABB {
             preOrden(raiz.derecho);
         }
     }
-
-    public void enOrden(Nodo_Arbol raiz)  //realiza recorrido en el arbol en orden
-    {
-        if(raiz != null)
-        {
+    
+     //Funciones defectuosas
+    public String enOrden(Nodo_Arbol raiz){  //realiza recorrido en el arbol en orden
+            if(raiz != null){
             enOrden(raiz.izquierdo);
-            System.out.print(raiz.dato+" ");
+            
+            varTexto= varTexto+ ("Letra: "+raiz.dato+enter);
+            
+            if(raiz.listaDeProductos.tamaño != 0){
+                varTexto= varTexto+ (raiz.listaDeProductos.retornarProductos());
+            }
             enOrden(raiz.derecho);
         }
+        return varTexto;
+        
     }
 
     public void postOrden(Nodo_Arbol raiz)  //realiza recorrido en arbol en post orden
@@ -296,8 +303,18 @@ public class ABB {
             System.out.print(raiz.dato+" ");
         }
     }
-
-
+    
+    public void agregarProductos(char nodoProducto,String nombre, int cantidadProd, int precio){
+        // se ocupa un metodo que busque el nodo que ocupo
+        Nodo_Arbol auxiliar = getNodo(nodoProducto);
+        auxiliar.listaDeProductos.agregar(nombre, cantidadProd, precio);
+    }
+    
+    //Funciones defectuosas
+    public String consultarInventario (Nodo_Arbol raiz){
+        varTexto = "";
+        enOrden(raiz);
+        return varTexto;
+    }
     
     }
-
