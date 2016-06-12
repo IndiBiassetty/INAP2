@@ -151,7 +151,7 @@ public class listaDobleEnlazada {
         }
         while(current != null){
            //Aqui el codigo esta loco se esta cayendo y no se sabe porque
-            varProd= varProd+ tab + "Producto: "+current.nombreProducto +enter+tab+"Cantidad: "+ current.cantidadProducto+" unidades"+enter+tab+ "Precio Unitario: ₡"+current.precioProducto+ enter+enter;
+            varProd= varProd + "Producto: "+current.nombreProducto +enter+tab+"Cantidad: "+ current.cantidadProducto+" unidades"+enter+tab+ "Precio Unitario: ₡"+current.precioProducto+ enter+enter;
             current = current.siguiente;
         }
         

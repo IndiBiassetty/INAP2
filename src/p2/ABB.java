@@ -316,5 +316,15 @@ public class ABB {
         enOrden(raiz);
         return varTexto;
     }
-    
+
+    public static void main(String args[]) {
+
+       ABB arbol = new ABB();
+       arbol.insertar('s');
+        System.out.println(arbol.buscarSiExiste('s'));
+       System.out.println(arbol.buscarSiExiste('a'));
+       
+              
     }
+    
+}

@@ -21,7 +21,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     public String variabImprimir3 = "";
     public String tab = "\t";
     public String enter = "\n";
-
+    
     public TecMarketInterfaz() {
         initComponents();
 
@@ -103,29 +103,32 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         panelAgregarProductos.setVisible(false);
         panelAgregarProductos.setLayout(null);
         //Ubicacion y tamaño
-        panelAgregarProductos.setBounds(0, 0, 800, 600);
+        panelAgregarProductos.setBounds(0,0, 800, 600);
         //Ubicacion del titulo
         titulo8.setBounds(new Rectangle(0, 0, 800, 60));
         //Boton atras
         atrasAgregarInventario.setBounds(new Rectangle(20, 60, 52, 48));
         labelAgregarInventario.setBounds(new Rectangle(0, 0, 800, 60));
+        labelNombreSucursalAgregInv.setBounds(new Rectangle(0, 65, 100, 20));
+        CBAgregarInventario.setBounds(new Rectangle(80, 65, 200, 22));
         //Panel que acomoda cosas
         panelConCosasAgregarProductos.setLayout(null);
-        panelConCosasAgregarProductos.setBounds(new Rectangle(80, 50, 700, 500));
+        panelConCosasAgregarProductos.setBounds(new Rectangle(80,50, 700, 500));
+        
+        botonAñadirProd.setBounds(new Rectangle(600, 140, 75, 20));
+        botonSeleccionar.setBounds(new Rectangle(300, 65, 110, 20));
 
-        botonAñadirProd.setBounds(new Rectangle(600, 100, 75, 20));
+        labelNombreProducto.setBounds(new Rectangle(0, 110, 100, 20));
+        TFProducto.setBounds(new Rectangle(0, 140, 190, 20));
+        scrollProducto.setBounds(new Rectangle(0, 170, 190, 300));
 
-        labelNombreProducto.setBounds(new Rectangle(0, 70, 100, 20));
-        TFProducto.setBounds(new Rectangle(0, 100, 190, 20));
-        scrollProducto.setBounds(new Rectangle(0, 130, 190, 350));
+        labelCantidad.setBounds(new Rectangle(200, 110, 100, 20));
+        TFCantidad.setBounds(new Rectangle(200, 140, 190, 20));
+        scrollCantidad.setBounds(new Rectangle(200, 170, 190, 300));
 
-        labelCantidad.setBounds(new Rectangle(200, 70, 100, 20));
-        TFCantidad.setBounds(new Rectangle(200, 100, 190, 20));
-        scrollCantidad.setBounds(new Rectangle(200, 130, 190, 350));
-
-        labelPrecio.setBounds(new Rectangle(400, 70, 100, 20));
-        TFPrecio.setBounds(new Rectangle(400, 100, 190, 20));
-        scrollPrecioUnit.setBounds(new Rectangle(400, 130, 190, 350));
+        labelPrecio.setBounds(new Rectangle(400, 110, 100, 20));
+        TFPrecio.setBounds(new Rectangle(400, 140, 190, 20));
+        scrollPrecioUnit.setBounds(new Rectangle(400, 170, 190, 300));
 
 //Panel Consultar Inventario
         panelConsultarInventario.setVisible(false);
@@ -140,8 +143,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         //Panel que acomoda cosas
         panelConCosasConsultarProductos.setLayout(null);
         panelConCosasConsultarProductos.setBounds(new Rectangle(80, 50, 650, 500));
-        scrollConsultarInventario.setBounds(new Rectangle(0, 100, 650, 400));
-
+        scrollConsultarInventario.setBounds(new Rectangle(0, 100, 650, 100));
+        scrollConsultarInventario1.setBounds(new Rectangle(0, 200, 650, 300));
     }
 
     @SuppressWarnings("unchecked")
@@ -211,6 +214,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         TFPrecio = new javax.swing.JTextField();
         labelPrecio = new javax.swing.JLabel();
         labelCantidad = new javax.swing.JLabel();
+        labelNombreSucursalAgregInv = new javax.swing.JLabel();
+        CBAgregarInventario = new javax.swing.JComboBox();
+        botonSeleccionar = new javax.swing.JButton();
         panelConsultarInventario = new javax.swing.JPanel();
         titulo7 = new javax.swing.JLabel();
         atrasConsultarInventario = new javax.swing.JButton();
@@ -223,6 +229,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         TPaneConsultarInventario = new javax.swing.JTextPane();
         botonModificarConsultarInventario = new javax.swing.JButton();
         botonEliminarInventario = new javax.swing.JButton();
+        scrollConsultarInventario1 = new javax.swing.JScrollPane();
+        TPaneConsultarInventario1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 51));
@@ -479,6 +487,10 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         labelConsultar.setText("Consultar sucursal");
 
         TPaneConsultarSucursalesInfo.setEditable(false);
+        TPaneConsultarSucursalesInfo.setBorder(null);
+        TPaneConsultarSucursalesInfo.setToolTipText("");
+        TPaneConsultarSucursalesInfo.setAutoscrolls(false);
+        TPaneConsultarSucursalesInfo.setSelectionColor(new java.awt.Color(255, 255, 255));
         scrollConsultarSucursalInfo.setViewportView(TPaneConsultarSucursalesInfo);
 
         botonModificarConsultar.setText("Modificar");
@@ -496,6 +508,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         });
 
         TPaneConsultarSucursalesInvent.setEditable(false);
+        TPaneConsultarSucursalesInvent.setBorder(null);
         scrollConsultarSucursalInventario.setViewportView(TPaneConsultarSucursalesInvent);
 
         javax.swing.GroupLayout panelConCosasConsultarLayout = new javax.swing.GroupLayout(panelConCosasConsultar);
@@ -731,13 +744,22 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         labelCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelCantidad.setText("Cantidad:");
 
+        labelNombreSucursalAgregInv.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNombreSucursalAgregInv.setText("Sucursal:");
+
+        botonSeleccionar.setText("Seleccionar");
+        botonSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSeleccionarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelConCosasAgregarProductosLayout = new javax.swing.GroupLayout(panelConCosasAgregarProductos);
         panelConCosasAgregarProductos.setLayout(panelConCosasAgregarProductosLayout);
         panelConCosasAgregarProductosLayout.setHorizontalGroup(
             panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
                 .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelAgregarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
                         .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -745,57 +767,63 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                                 .addComponent(scrollProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
                             .addComponent(labelNombreProducto))
                         .addGap(44, 44, 44)
-                        .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(scrollPrecioUnit, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                            .addComponent(TFCantidad))
-                        .addGap(46, 46, 46)
                         .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(scrollCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                .addComponent(TFPrecio))
-                            .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
-                                .addComponent(labelPrecio)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                                .addComponent(botonAñadirProd)))))
+                                .addComponent(scrollPrecioUnit, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                .addComponent(TFCantidad))
+                            .addComponent(labelCantidad)))
+                    .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
+                        .addComponent(labelNombreSucursalAgregInv)
+                        .addGap(38, 38, 38)
+                        .addComponent(CBAgregarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonSeleccionar)))
+                .addGap(44, 44, 44)
+                .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(scrollCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                        .addComponent(TFPrecio))
+                    .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
+                        .addComponent(labelPrecio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(botonAñadirProd)))
                 .addGap(39, 39, 39))
-            .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
-                    .addGap(230, 230, 230)
-                    .addComponent(labelCantidad)
-                    .addContainerGap(383, Short.MAX_VALUE)))
+            .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
+                .addComponent(labelAgregarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelConCosasAgregarProductosLayout.setVerticalGroup(
             panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConCosasAgregarProductosLayout.createSequentialGroup()
                 .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
-                        .addComponent(labelAgregarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TFProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(scrollProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 17, Short.MAX_VALUE))
-                    .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(66, 66, 66)
                         .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(botonAñadirProd)
-                            .addComponent(labelPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
+                        .addComponent(labelAgregarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollPrecioUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scrollCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
+                                .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelNombreSucursalAgregInv, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CBAgregarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botonSeleccionar))
+                                .addGap(3, 3, 3)
+                                .addComponent(labelNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TFProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TFCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollPrecioUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(panelConCosasAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelConCosasAgregarProductosLayout.createSequentialGroup()
-                    .addGap(49, 49, 49)
-                    .addComponent(labelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(317, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout panelAgregarProductosLayout = new javax.swing.GroupLayout(panelAgregarProductos);
@@ -820,7 +848,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 .addGroup(panelAgregarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(atrasAgregarInventario)
                     .addComponent(panelConCosasAgregarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         panelConsultarInventario.setBackground(new java.awt.Color(255, 255, 255));
@@ -852,8 +880,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
 
-        cbConsultarInventario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         labelConsultarInventario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labelConsultarInventario.setText("Consultar inventario");
 
@@ -874,6 +900,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         });
 
+        TPaneConsultarInventario1.setEditable(false);
+        scrollConsultarInventario1.setViewportView(TPaneConsultarInventario1);
+
         javax.swing.GroupLayout panelConCosasConsultarProductosLayout = new javax.swing.GroupLayout(panelConCosasConsultarProductos);
         panelConCosasConsultarProductos.setLayout(panelConCosasConsultarProductosLayout);
         panelConCosasConsultarProductosLayout.setHorizontalGroup(
@@ -884,9 +913,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConCosasConsultarProductosLayout.createSequentialGroup()
                 .addGroup(panelConCosasConsultarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelConCosasConsultarProductosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(scrollConsultarInventario))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelConCosasConsultarProductosLayout.createSequentialGroup()
                         .addComponent(labelNombreSucursal4)
                         .addGap(31, 31, 31)
                         .addComponent(cbConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -896,7 +922,12 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                         .addComponent(botonModificarConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botonEliminarInventario)
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                        .addGap(0, 4, Short.MAX_VALUE))
+                    .addGroup(panelConCosasConsultarProductosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelConCosasConsultarProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(scrollConsultarInventario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(scrollConsultarInventario1))))
                 .addGap(57, 57, 57))
         );
         panelConCosasConsultarProductosLayout.setVerticalGroup(
@@ -911,8 +942,10 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addComponent(botonModificarConsultarInventario)
                     .addComponent(botonEliminarInventario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(scrollConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollConsultarInventario1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelConsultarInventarioLayout = new javax.swing.GroupLayout(panelConsultarInventario);
@@ -937,7 +970,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                     .addGroup(panelConsultarInventarioLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(panelConCosasConsultarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -972,12 +1005,12 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(274, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelConsultarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(321, Short.MAX_VALUE)))
+                    .addContainerGap(325, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -992,7 +1025,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(132, 132, 132)
                     .addComponent(panelConsultarModificarCaminos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(180, Short.MAX_VALUE)))
+                    .addContainerGap(185, Short.MAX_VALUE)))
         );
 
         panelPrincipal.getAccessibleContext().setAccessibleName("");
@@ -1161,23 +1194,40 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCaminoActionPerformed
 
     private void botonCrearInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearInventarioActionPerformed
-        JComboBox cbElegirSucursal = new JComboBox();
-        JComboBox cbElegirSucursalConsultar = new JComboBox();
+       
 
         if (cbInventario.getSelectedItem() == "Insertar producto") {
-            JPanel panelMsjAgregar = new JPanel(new GridLayout(0, 1));
-            panelMsjAgregar.add(new JLabel("Elija una Sucursal:"));
-            panelMsjAgregar.add(cbElegirSucursal);
-
-            int mensajeAgregarInventario = JOptionPane.showConfirmDialog(panelPrincipal, panelMsjAgregar, "Agregar inventario de sucursal", JOptionPane.CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
-            if (JOptionPane.CANCEL_OPTION != mensajeAgregarInventario) {
                 panelAgregarProductos.setVisible(true);
                 panelPrincipal.setVisible(false);
-            }
-        } else if (cbInventario.getSelectedItem() == "Consultar/Modificar") {
+                
+                //CBAgregarInventario.removeAllItems();
+
+                //Este metodo carga el combobox de agregar productos 
+                nodoEsp aux;
+                for (int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++) {
+                    aux = cadenaSupermercados.SuperMercados.get(imprimir);
+
+                    String nomSucurs = null;
+                    nomSucurs = aux.nombreSuperMercado;
+
+                    CBAgregarInventario.addItem(nomSucurs);
+                }
+               
+        } 
+        //Metodo que consulta y modifica
+        else{
             panelConsultarInventario.setVisible(true);
             panelPrincipal.setVisible(false);
+                            //Este metodo carga el combobox de agregar inventario 
+                nodoEsp aux;
+                for (int imprimir = 0; imprimir < cadenaSupermercados.SuperMercados.size(); imprimir++) {
+                    aux = cadenaSupermercados.SuperMercados.get(imprimir);
+
+                    String nomSucurs = null;
+                    nomSucurs = aux.nombreSuperMercado;
+
+                    cbConsultarInventario.addItem(nomSucurs);
+                }
         }
     }//GEN-LAST:event_botonCrearInventarioActionPerformed
 
@@ -1228,9 +1278,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         else{
            TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+" No hay productos disponibles");
         }
-        //Aqui va el inventario esto es una prueba donde se imprimen
-        //la lista de supermercados para ver si sirve
-        //cadenaSupermercados.imprimeGrafo();
+       
 
     }//GEN-LAST:event_botonVerConsultarActionPerformed
 
@@ -1414,10 +1462,27 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void atrasConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarInventarioActionPerformed
         panelConsultarInventario.setVisible(false);
         panelPrincipal.setVisible(true);
+
+        cbConsultarInventario.removeAllItems();
     }//GEN-LAST:event_atrasConsultarInventarioActionPerformed
 
     private void botonVerConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVerConsultarInventarioActionPerformed
-        // TODO add your handling code here:
+        TPaneConsultarInventario.setText(null);
+        TPaneConsultarInventario1.setText(null);
+        Object selecionado = cbConsultarInventario.getSelectedItem();
+        String StringSeleccionado = String.valueOf(selecionado);
+
+        cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
+        TPaneConsultarInventario.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + ">> Cantidad de empleados:" + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados);//Falta agregarle lo de inventario
+        
+        if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz != null){
+           TPaneConsultarInventario1.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz.listaDeProductos.retornarProductos()); 
+        }
+        else{
+           TPaneConsultarInventario1.setText("INVENTARIO DISPONIBLE"+ enter+enter+" No hay productos disponibles");
+        }
+       
+
     }//GEN-LAST:event_botonVerConsultarInventarioActionPerformed
 
     private void botonModificarConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarConsultarInventarioActionPerformed
@@ -1437,28 +1502,63 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         TPaneCantidad.setText(null);
         variabImprimir3 = "";
         TPanePrecio.setText(null);
+        CBAgregarInventario.removeAllItems();
     }//GEN-LAST:event_atrasAgregarInventarioActionPerformed
 
     private void botonAñadirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirProdActionPerformed
         //Aqui se escriben los productos en la pantalla
-        String producto = null;
-        producto = TFProducto.getText();
-        variabImprimir = variabImprimir + "\n" + producto;
-        TPaneProducto.setText(variabImprimir);
-        TFProducto.setText(null);
+        //VariablesPrueba
+        String varPrueba,varPrueba2,varPrueba3 = null;
+        
+        Object selecionado = CBAgregarInventario.getSelectedItem();
+        String StringSeleccionado = String.valueOf(selecionado);
+        
+        varPrueba = TFProducto.getText();
+        varPrueba2 = TFCantidad.getText();
+        varPrueba3 = TFPrecio.getText();
+        
+        varPrueba = varPrueba.replaceAll(" ", "");
+        varPrueba2 = varPrueba2.replaceAll(" ", "");
+        varPrueba3 = varPrueba3.replaceAll(" ", "");
+             
+        if (varPrueba.length() == 0 || varPrueba2.length() == 0 || varPrueba3.length()==0) {
+            JOptionPane.showMessageDialog(panelPrincipal, "Operación Invalida, ingrese todos los datos que se le solicitan");
 
-        String cantidad = null;
-        cantidad = TFCantidad.getText();
-        variabImprimir2 = variabImprimir2 + "\n" + cantidad;
-        TPaneCantidad.setText(variabImprimir2);
-        TFCantidad.setText(null);
+        } else {
+            String producto = null;
+            producto = TFProducto.getText();
+            variabImprimir = variabImprimir + "\n" + producto;
+            TPaneProducto.setText(variabImprimir);
+            TFProducto.setText(null);
 
-        String precioUnit = null;
-        precioUnit = TFPrecio.getText();
-        variabImprimir3 = variabImprimir3 + "\n" + precioUnit;
-        TPanePrecio.setText(variabImprimir3);
-        TFPrecio.setText(null);
+            String cantidad = null;
+            cantidad = TFCantidad.getText();
+            variabImprimir2 = variabImprimir2 + "\n" + cantidad;
+            TPaneCantidad.setText(variabImprimir2);
+            TFCantidad.setText(null);
 
+            int numCantProd = Integer.parseInt(cantidad);
+
+            String precioUnit = null;
+            precioUnit = TFPrecio.getText();
+            variabImprimir3 = variabImprimir3 + "\n" + precioUnit;
+            TPanePrecio.setText(variabImprimir3);
+            TFPrecio.setText(null);
+
+            int numPrecioProd = Integer.parseInt(precioUnit);
+            System.out.println(StringSeleccionado+"cosa");
+
+            if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.buscarSiExiste('a')== true){
+                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.agregarProductos('a', producto, numCantProd, numPrecioProd);
+               System.out.println("Aqui entro al if que ya esta el nodo echo");
+            }
+            else{
+                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.insertar('a');
+                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.agregarProductos('a', producto, numCantProd, numPrecioProd);
+                System.out.println("Aqui entro al else que crea el nodo con el char");
+            }           
+        }
+       
     }//GEN-LAST:event_botonAñadirProdActionPerformed
 
     private void TFProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFProductoActionPerformed
@@ -1530,6 +1630,18 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_botonEliminarConsultarCaminosActionPerformed
+
+    private void botonSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarActionPerformed
+        TPaneProducto.setText(null);
+        TPaneCantidad.setText(null);
+        TPanePrecio.setText(null);
+        variabImprimir = "";
+        TPaneProducto.setText(null);
+        variabImprimir2 = "";
+        TPaneCantidad.setText(null);
+        variabImprimir3 = "";
+        TPanePrecio.setText(null);
+    }//GEN-LAST:event_botonSeleccionarActionPerformed
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1539,12 +1651,14 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox CBAgregarInventario;
     private javax.swing.JTextField TFCantidad;
     private javax.swing.JTextField TFPrecio;
     private javax.swing.JTextField TFProducto;
     private javax.swing.JTextPane TPaneCantidad;
     private javax.swing.JTextPane TPaneConsultarCaminos;
     private javax.swing.JTextPane TPaneConsultarInventario;
+    private javax.swing.JTextPane TPaneConsultarInventario1;
     private javax.swing.JTextPane TPaneConsultarSucursalesInfo;
     private javax.swing.JTextPane TPaneConsultarSucursalesInvent;
     private javax.swing.JTextPane TPanePrecio;
@@ -1566,6 +1680,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton botonModificarConsultar;
     private javax.swing.JButton botonModificarConsultarCaminos;
     private javax.swing.JButton botonModificarConsultarInventario;
+    private javax.swing.JButton botonSeleccionar;
     private javax.swing.JButton botonVerConsultar;
     private javax.swing.JButton botonVerConsultarCaminos;
     private javax.swing.JButton botonVerConsultarInventario;
@@ -1586,6 +1701,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel labelNombreSucursal1;
     private javax.swing.JLabel labelNombreSucursal3;
     private javax.swing.JLabel labelNombreSucursal4;
+    private javax.swing.JLabel labelNombreSucursalAgregInv;
     private javax.swing.JLabel labelPrecio;
     private javax.swing.JLabel lbCaminos;
     private javax.swing.JLabel lbCliente;
@@ -1604,6 +1720,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollCantidad;
     private javax.swing.JScrollPane scrollConsultarCaminos;
     private javax.swing.JScrollPane scrollConsultarInventario;
+    private javax.swing.JScrollPane scrollConsultarInventario1;
     private javax.swing.JScrollPane scrollConsultarSucursalInfo;
     private javax.swing.JScrollPane scrollConsultarSucursalInventario;
     private javax.swing.JScrollPane scrollPrecioUnit;

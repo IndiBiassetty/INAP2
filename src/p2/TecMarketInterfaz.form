@@ -68,13 +68,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="panelPrincipal" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="270" max="32767" attributes="0"/>
+              <EmptySpace pref="274" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelConsultarInventario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="321" max="32767" attributes="0"/>
+                  <EmptySpace pref="325" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
@@ -95,7 +95,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                   <Component id="panelConsultarModificarCaminos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="180" max="32767" attributes="0"/>
+                  <EmptySpace pref="185" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -610,6 +610,14 @@
                 <Component class="javax.swing.JTextPane" name="TPaneConsultarSucursalesInfo">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="autoscrolls" type="boolean" value="false"/>
+                    <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -640,6 +648,9 @@
                 <Component class="javax.swing.JTextPane" name="TPaneConsultarSucursalesInvent">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -865,7 +876,7 @@
                       <Component id="atrasAgregarInventario" min="-2" max="-2" attributes="0"/>
                       <Component id="panelConCosasAgregarProductos" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -910,7 +921,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelAgregarInventario" min="-2" pref="258" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -920,75 +930,83 @@
                                   <Component id="labelNombreProducto" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="scrollPrecioUnit" pref="176" max="32767" attributes="0"/>
-                                  <Component id="TFCantidad" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="scrollCantidad" pref="176" max="32767" attributes="0"/>
-                                      <Component id="TFPrecio" max="32767" attributes="0"/>
+                                      <Component id="scrollPrecioUnit" pref="176" max="32767" attributes="0"/>
+                                      <Component id="TFCantidad" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labelPrecio" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="69" max="32767" attributes="0"/>
-                                      <Component id="botonAñadirProd" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="labelCantidad" min="-2" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelNombreSucursalAgregInv" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="CBAgregarInventario" min="-2" pref="225" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="botonSeleccionar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="scrollCantidad" pref="176" max="32767" attributes="0"/>
+                              <Component id="TFPrecio" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelPrecio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="45" max="32767" attributes="0"/>
+                              <Component id="botonAñadirProd" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="labelCantidad" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="383" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="labelAgregarInventario" min="-2" pref="258" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelAgregarInventario" min="-2" pref="33" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelNombreProducto" min="-2" pref="23" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="TFProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TFCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="scrollProducto" min="-2" pref="250" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="botonAñadirProd" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelPrecio" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TFPrecio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelAgregarInventario" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="scrollPrecioUnit" min="-2" pref="250" max="-2" attributes="0"/>
-                                  <Component id="scrollCantidad" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="labelNombreSucursalAgregInv" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <Component id="CBAgregarInventario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botonSeleccionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="labelNombreProducto" min="-2" pref="23" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="labelCantidad" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="TFProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TFCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TFPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                          <Component id="labelCantidad" min="-2" pref="23" max="-2" attributes="0"/>
-                          <EmptySpace pref="317" max="32767" attributes="0"/>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="scrollProducto" min="-2" pref="250" max="-2" attributes="0"/>
+                          <Component id="scrollPrecioUnit" min="-2" pref="250" max="-2" attributes="0"/>
+                          <Component id="scrollCantidad" min="-2" pref="250" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1088,6 +1106,29 @@
                 <Property name="text" type="java.lang.String" value="Cantidad:"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="labelNombreSucursalAgregInv">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Sucursal:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="CBAgregarInventario">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonSeleccionar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Seleccionar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSeleccionarActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
@@ -1125,7 +1166,7 @@
                           <Component id="panelConCosasConsultarProductos" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1175,10 +1216,6 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="scrollConsultarInventario" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="labelNombreSucursal4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="cbConsultarInventario" min="-2" pref="212" max="-2" attributes="0"/>
@@ -1189,6 +1226,13 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="botonEliminarInventario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="scrollConsultarInventario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="scrollConsultarInventario1" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -1208,8 +1252,10 @@
                           <Component id="botonEliminarInventario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollConsultarInventario" min="-2" pref="183" max="-2" attributes="0"/>
-                      <EmptySpace pref="82" max="32767" attributes="0"/>
+                      <Component id="scrollConsultarInventario" min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="scrollConsultarInventario1" min="-2" pref="109" max="-2" attributes="0"/>
+                      <EmptySpace pref="156" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1234,12 +1280,7 @@
             <Component class="javax.swing.JComboBox" name="cbConsultarInventario">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
             </Component>
@@ -1281,6 +1322,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarInventarioActionPerformed"/>
               </Events>
             </Component>
+            <Container class="javax.swing.JScrollPane" name="scrollConsultarInventario1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextPane" name="TPaneConsultarInventario1">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
