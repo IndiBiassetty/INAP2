@@ -42,10 +42,10 @@ public class listaDobleEnlazada {
         public void setPrecioProducto(int precioProducto) {
             this.precioProducto = precioProducto;
         }
-       
     }
     
     // Metodos lista
+//Agrega productos a la lista de inventario, 
     public void agregar(String nombre, int cantidadProd, int precio){
         nodo nuevo = new nodo(nombre, cantidadProd, precio);
         
@@ -62,12 +62,12 @@ public class listaDobleEnlazada {
         }
     }
 //Elimina todo el nodo del producto
+    //Este se usa para cuando solo hay un producto disponible en el nodo
     public void eliminar (String producto){
         if (tamaño!= 0){
             if (tamaño == 1){
                 primero = ultimo = null;
                 tamaño = 0;
-              
             }
             else{
                 if (primero.nombreProducto == producto){
@@ -126,7 +126,7 @@ public class listaDobleEnlazada {
             }
         }
     }    
-
+//Esta funcion imprime la lista
    public void imprimir(){
         nodo actual= primero;
         if (actual == null){
@@ -141,24 +141,24 @@ public class listaDobleEnlazada {
    }
    
    //Funciones defectuosas
+   //Esta funcion retorna los productos de un nodo de la lista
    public String retornarProductos(){
-        String varProd = "";        
-                
+        String varProd = ""; 
         nodo current= primero;
-        
         if (current == null){
             System.out.println("Esta vacio" );
         }
         while(current != null){
-           //Aqui el codigo esta loco se esta cayendo y no se sabe porque
+        //Aqui el codigo esta loco se esta cayendo y no se sabe porque
             varProd= varProd + "Producto: "+current.nombreProducto +enter+tab+"Cantidad: "+ current.cantidadProducto+" unidades"+enter+tab+ "Precio Unitario: ₡"+current.precioProducto+ enter+enter;
+        //SE cae
             current = current.siguiente;
         }
-        
+        System.out.println(varProd+ " Aqui va retornar productos");
         return varProd;
         
    }
-
+//Funcion que retorna el nodo del arbol con toda la informacion
    public nodo retornarNodo(){
         nodo informacionNodo=null;
                

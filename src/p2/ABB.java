@@ -283,7 +283,7 @@ public class ABB {
             if(raiz != null){
             enOrden(raiz.izquierdo);
             
-            varTexto= varTexto+ ("Letra: "+raiz.dato+enter);
+            varTexto= varTexto+ (">>LETRA: "+raiz.dato+enter);
             
             if(raiz.listaDeProductos.tamaño != 0){
                 varTexto= varTexto+ (raiz.listaDeProductos.retornarProductos());

@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.awt.GridLayout;
 import javax.swing.*;
 import java.awt.Font;
+
 //Se importa el grafo
 import p2.*;
 
@@ -143,8 +144,8 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         //Panel que acomoda cosas
         panelConCosasConsultarProductos.setLayout(null);
         panelConCosasConsultarProductos.setBounds(new Rectangle(80, 50, 650, 500));
-        scrollConsultarInventario.setBounds(new Rectangle(0, 100, 650, 100));
-        scrollConsultarInventario1.setBounds(new Rectangle(0, 200, 650, 300));
+        scrollConsultarInventario.setBounds(new Rectangle(0, 100, 650, 60));
+        scrollConsultarInventario1.setBounds(new Rectangle(0, 170, 650, 300));
     }
 
     @SuppressWarnings("unchecked")
@@ -1272,8 +1273,10 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
         TPaneConsultarSucursalesInfo.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + ">> Cantidad de empleados:" + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados);//Falta agregarle lo de inventario
         
+        Nodo_Arbol raizNodo = cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz;
+        
         if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz != null){
-           TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz.listaDeProductos.retornarProductos()); 
+           TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.consultarInventario(raizNodo)); 
         }
         else{
            TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+" No hay productos disponibles");
@@ -1462,7 +1465,9 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
     private void atrasConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasConsultarInventarioActionPerformed
         panelConsultarInventario.setVisible(false);
         panelPrincipal.setVisible(true);
-
+        TPaneConsultarInventario.setText(null);
+        TPaneConsultarInventario1.setText(null);
+        
         cbConsultarInventario.removeAllItems();
     }//GEN-LAST:event_atrasConsultarInventarioActionPerformed
 
@@ -1473,16 +1478,16 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         String StringSeleccionado = String.valueOf(selecionado);
 
         cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
-        TPaneConsultarInventario.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + ">> Cantidad de empleados:" + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados);//Falta agregarle lo de inventario
+        Nodo_Arbol raizNodo = cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz;
+        
+        TPaneConsultarInventario.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado);
         
         if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz != null){
-           TPaneConsultarInventario1.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz.listaDeProductos.retornarProductos()); 
+           TPaneConsultarInventario1.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.consultarInventario(raizNodo)); 
         }
         else{
            TPaneConsultarInventario1.setText("INVENTARIO DISPONIBLE"+ enter+enter+" No hay productos disponibles");
         }
-       
-
     }//GEN-LAST:event_botonVerConsultarInventarioActionPerformed
 
     private void botonModificarConsultarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarConsultarInventarioActionPerformed
@@ -1527,6 +1532,7 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         } else {
             String producto = null;
             producto = TFProducto.getText();
+            
             variabImprimir = variabImprimir + "\n" + producto;
             TPaneProducto.setText(variabImprimir);
             TFProducto.setText(null);
@@ -1547,14 +1553,25 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
 
             int numPrecioProd = Integer.parseInt(precioUnit);
             System.out.println(StringSeleccionado+"cosa");
+            
+            String cadenaNombreProducto = producto;
+            
+            cadenaNombreProducto = cadenaNombreProducto.replaceAll(cadenaNombreProducto.toLowerCase(),cadenaNombreProducto.toUpperCase());
+            
+            System.out.println(cadenaNombreProducto+" esta es la cadena en mayuscula");
+            
+            char charLetraNodo [] = cadenaNombreProducto.toCharArray();
+            
+            System.out.println(charLetraNodo[0]+" esta es la letra");
+            
 
-            if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.buscarSiExiste('a')== true){
-                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.agregarProductos('a', producto, numCantProd, numPrecioProd);
+            if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.buscarSiExiste(charLetraNodo[0])== true){
+                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.agregarProductos(charLetraNodo[0], producto, numCantProd, numPrecioProd);
                System.out.println("Aqui entro al if que ya esta el nodo echo");
             }
             else{
-                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.insertar('a');
-                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.agregarProductos('a', producto, numCantProd, numPrecioProd);
+                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.insertar(charLetraNodo[0]);
+                cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.agregarProductos(charLetraNodo[0], producto, numCantProd, numPrecioProd);
                 System.out.println("Aqui entro al else que crea el nodo con el char");
             }           
         }
