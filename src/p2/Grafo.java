@@ -6,6 +6,7 @@ public class Grafo{
 	public LinkedList <nodoEsp> SuperMercados;  //Lista de Supermercados
         public String enter = "\n";
         public String tab = "\t";
+        public int cantidadSucursales = 0;
 
 	//Constructor del grafo
 	public Grafo(){
@@ -15,6 +16,7 @@ public class Grafo{
 	//Método para agregar un vértice al grafo
 	public void agregarSuperMercado(String nombreSucursal, String cantEmpleados){
             SuperMercados.add(new nodoEsp( nombreSucursal, cantEmpleados ));  
+            cantidadSucursales++;
 	}
 
 	//Método para agregar una arista al grafo
@@ -44,7 +46,6 @@ public class Grafo{
 
 	//Método para buscar el primer vértice del grafo que esté sin visitar
 	public nodoEsp buscarSuperMercadoSinvicitar(){
-
             for(int buscador = 0; buscador < this.SuperMercados.size(); buscador++){
                 if(!this.SuperMercados.get(buscador).IndicadorVisitado ){ 
                     return this.SuperMercados.get(buscador);
@@ -84,6 +85,7 @@ public class Grafo{
             this.SuperMercados.remove(buscarSuperMercado(nombre)); 
             for(int i = 0; i < SuperMercados.size(); i++)
                 eliminarRutas(SuperMercados.get(i).nombreSuperMercado, nombre);
+            cantidadSucursales--;
 	}
 
 	//Eliminaremos la ruta 
@@ -154,4 +156,23 @@ public class Grafo{
                     Cola.removeFirst();}
             actual = buscarSuperMercadoSinvicitar();}
             System.out.println();
-    }}
+    }
+
+    //GENERADOR DE CLIENTE RANDOM
+        public String generarClienteRandom (){
+            String [] StringSucursales;
+            StringSucursales = new String[cantidadSucursales];
+            int indice = 0;
+            nodoEsp actual;
+            
+            for(int imprimir = 0; imprimir < this.SuperMercados.size(); imprimir++){
+                actual = SuperMercados.get(imprimir);
+                StringSucursales[indice] = actual.nombreSuperMercado;
+                indice++;
+            }
+            int indiceGeneradorCliente = (int)(Math.random()*cantidadSucursales);
+            return (StringSucursales[indiceGeneradorCliente]);
+           
+        }
+
+}

@@ -1,14 +1,11 @@
 //Esta es la lista de adyacencia donde se almacenan las rutas 
 
 package p2;
-
 public class nodoN{
 
  	public String Ruta;		//Ruta 
  	public int Distancia;           //Distgancia a recorrer desde punto "x" a puto "y"
         public int Tiempo;              //Tiempo entre punto "x" y punto "y"
-
-
 
 //////////////Constructores/////////////////// 	
         
@@ -17,9 +14,7 @@ public class nodoN{
             Distancia = 0;
             Tiempo =0;
 	}
-
 ////////////Constructor de Ruta///////////////
-        
 	public nodoN(String r, int d ,int t){
 		this.Ruta = r;
 		this.Distancia = d;

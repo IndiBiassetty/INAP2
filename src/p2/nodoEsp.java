@@ -75,8 +75,6 @@ public class nodoEsp{
         this.inventario = inventario;
     }
         
-        
-
 	public String ListaSuper(){
 		return "\n>>> Nombre de Supermercado ="+this.nombreSuperMercado +" " +"\n>>>";
 	}

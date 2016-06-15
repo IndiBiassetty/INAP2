@@ -12,7 +12,6 @@ public class ABB {
         raiz = null;
     }
 
-
     public boolean esVacio(){           //metodo para saber si arbol esta vacio {
         boolean vacio = true;              //salidas booleano
         if ( raiz != null ){
@@ -282,9 +281,7 @@ public class ABB {
     public String enOrden(Nodo_Arbol raiz){  //realiza recorrido en el arbol en orden
             if(raiz != null){
             enOrden(raiz.izquierdo);
-            
             varTexto= varTexto+ (">>LETRA: "+raiz.dato+enter);
-            
             if(raiz.listaDeProductos.tamaño != 0){
                 varTexto= varTexto+ (raiz.listaDeProductos.retornarProductos());
             }
@@ -293,7 +290,7 @@ public class ABB {
         return varTexto;
         
     }
-
+     
     public void postOrden(Nodo_Arbol raiz)  //realiza recorrido en arbol en post orden
     {
         if(raiz != null)
@@ -321,10 +318,12 @@ public class ABB {
 
        ABB arbol = new ABB();
        arbol.insertar('s');
+       arbol.insertar('p');
         System.out.println(arbol.buscarSiExiste('s'));
-       System.out.println(arbol.buscarSiExiste('a'));
+       System.out.println(arbol.buscarSiExiste('p'));
+       arbol.eliminar('P');
+       System.out.println(arbol.buscarSiExiste('p'));
        
-              
     }
     
 }

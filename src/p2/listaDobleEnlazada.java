@@ -1,12 +1,11 @@
 package p2;
-
-//Prueba
 public class listaDobleEnlazada {
     public nodo  primero;
     public nodo  ultimo;
     public int   tamaño;
     public String tab = "\t";
     public String enter = "\n";
+    
         
     //Constructor
     public listaDobleEnlazada(){
@@ -139,7 +138,6 @@ public class listaDobleEnlazada {
             actual = actual.siguiente;
         }
    }
-   
    //Funciones defectuosas
    //Esta funcion retorna los productos de un nodo de la lista
    public String retornarProductos(){
@@ -155,9 +153,9 @@ public class listaDobleEnlazada {
             current = current.siguiente;
         }
         System.out.println(varProd+ " Aqui va retornar productos");
-        return varProd;
-        
+        return varProd; 
    }
+        
 //Funcion que retorna el nodo del arbol con toda la informacion
    public nodo retornarNodo(){
         nodo informacionNodo=null;
@@ -174,4 +172,19 @@ public class listaDobleEnlazada {
         }
         return null;
     }
+   
+   public boolean existeProducto(String producto){
+       nodo actual= primero;
+       boolean bandera = false;
+        while(actual != null ){
+            System.out.println(actual.nombreProducto +"nombre del producto antes del if");
+            System.out.println(producto +"antes del if");
+            if(actual.nombreProducto.equals(producto)){
+                System.out.println(actual.nombreProducto +" despues del if");
+                bandera= true;  
+            }
+            actual = actual.siguiente;
+        }
+       return bandera; 
+   }
 }
