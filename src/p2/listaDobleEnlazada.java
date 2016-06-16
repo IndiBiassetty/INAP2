@@ -80,10 +80,12 @@ public class listaDobleEnlazada {
                 }
                 else{
                     nodo aux = primero;
-                    while(aux.siguiente.nombreProducto != producto && aux != null){
+                    
+                    while(!aux.siguiente.nombreProducto.equals(producto) && aux != null){
                         aux = aux.siguiente;
                     }
-                    if (aux.siguiente.nombreProducto == producto){
+                     if (aux.siguiente.nombreProducto == producto){
+                        System.out.println(aux.nombreProducto+"despues del if");
                         aux.siguiente.siguiente.anterior= aux;
                         aux.siguiente=aux.siguiente.siguiente;   
                     }
@@ -114,6 +116,7 @@ public class listaDobleEnlazada {
                         }
                         else{
                             actual.setCantidadProducto(actual.cantidadProducto-cantidad);
+                            System.out.println(actual.cantidadProducto+ "aqui ya se setio");
                         }
                     }
                     else{
@@ -152,8 +155,7 @@ public class listaDobleEnlazada {
         //SE cae
             current = current.siguiente;
         }
-        System.out.println(varProd+ " Aqui va retornar productos");
-        return varProd; 
+         return varProd; 
    }
         
 //Funcion que retorna el nodo del arbol con toda la informacion
@@ -177,14 +179,27 @@ public class listaDobleEnlazada {
        nodo actual= primero;
        boolean bandera = false;
         while(actual != null ){
-            System.out.println(actual.nombreProducto +"nombre del producto antes del if");
-            System.out.println(producto +"antes del if");
-            if(actual.nombreProducto.equals(producto)){
-                System.out.println(actual.nombreProducto +" despues del if");
-                bandera= true;  
-            }
+           System.out.println(producto +"antes del if");
+            if(!actual.nombreProducto.equals(producto)){
+            } else {
+                bandera= true;
+           }
             actual = actual.siguiente;
         }
        return bandera; 
    }
+   
+   public nodo BuscarProducto(String producto){
+       nodo actual= primero;
+        while(actual != null ){
+            if(actual.nombreProducto.equals(producto)){
+                return actual;
+            }
+                
+            actual = actual.siguiente;
+        }
+        return null; 
+   }
+   
+
 }

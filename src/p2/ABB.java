@@ -6,6 +6,7 @@ public class ABB {
     public String tab = "\t";
     public String enter = "\n";
     public String varTexto = "";
+    public int tamañoArbol = 0;
     
     // Constructor de un arbol vacio
     public ABB() {                             //construye
@@ -68,6 +69,7 @@ public class ABB {
                 }
             }
         }
+        tamañoArbol++;
     }
 
     public boolean buscarSiExiste(char x)        //Agarra un char y lo revisa en arbol para ver si esta o no
@@ -265,6 +267,7 @@ public class ABB {
                 }
             }
         }
+        tamañoArbol--;
     }
 
     public void preOrden(Nodo_Arbol raiz)   //realiza recorrido en arbol de pre orden
@@ -277,7 +280,7 @@ public class ABB {
         }
     }
     
-     //Funciones defectuosas
+    
     public String enOrden(Nodo_Arbol raiz){  //realiza recorrido en el arbol en orden
             if(raiz != null){
             enOrden(raiz.izquierdo);
@@ -311,19 +314,9 @@ public class ABB {
     public String consultarInventario (Nodo_Arbol raiz){
         varTexto = "";
         enOrden(raiz);
+        System.out.println(varTexto);
         return varTexto;
     }
 
-    public static void main(String args[]) {
-
-       ABB arbol = new ABB();
-       arbol.insertar('s');
-       arbol.insertar('p');
-        System.out.println(arbol.buscarSiExiste('s'));
-       System.out.println(arbol.buscarSiExiste('p'));
-       arbol.eliminar('P');
-       System.out.println(arbol.buscarSiExiste('p'));
-       
-    }
     
 }

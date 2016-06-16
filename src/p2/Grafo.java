@@ -158,6 +158,35 @@ public class Grafo{
             System.out.println();
     }
 
+  //Dijsktra
+        
+        
+               public void Dijsktra(String Inicial){
+            nodoEsp actual;
+            LinkedList <nodoEsp> Cola = new LinkedList<nodoEsp>();	
+            actual = buscarSuperMercado(Inicial);
+            while(actual != null) {
+                if(!actual.IndicadorVisitado){
+                    System.out.print(actual.Rutas + " "); 
+                    actual.IndicadorVisitado = true; //Indica que ya fue vicitado
+                    Cola.add(actual);}
+                while(Cola.size() > 0){
+                    nodoEsp auxiliar;
+                    for(int cont = 0; cont < Cola.getFirst().Rutas.size(); cont++){
+                        auxiliar = buscarSuperMercado(Cola.getFirst().Rutas.get(cont).Ruta);
+                        if(auxiliar.IndicadorVisitado){ 
+                            System.out.print(auxiliar.IndicadorVisitado + " "); 
+                            auxiliar.IndicadorVisitado = true;	
+                            Cola.add(auxiliar);}}
+                    Cola.removeFirst();}
+            actual = buscarSuperMercadoSinvicitar();}
+            System.out.println();
+}
+
+        
+        
+        
+        
     //GENERADOR DE CLIENTE RANDOM
         public String generarClienteRandom (){
             String [] StringSucursales;
@@ -174,5 +203,22 @@ public class Grafo{
             return (StringSucursales[indiceGeneradorCliente]);
            
         }
-
+        /**
+               public static void main(String args[]) {
+           Grafo a = new Grafo();
+           a.agregarSuperMercado("Cartago", "5");
+           a.buscarSuperMercado("Cartago").inventario.insertar('a');
+           a.buscarSuperMercado("Cartago").inventario.agregarProductos('a', "atol", 5, 7);
+           a.buscarSuperMercado("Cartago").inventario.agregarProductos('a', "atun", 5, 7);
+           a.buscarSuperMercado("Cartago").inventario.agregarProductos('a', "ajo", 5, 7);
+           a.buscarSuperMercado("Cartago").inventario.agregarProductos('a', "achiote", 5, 7);
+           a.buscarSuperMercado("Cartago").inventario.agregarProductos('a', "avena", 5, 7);
+           
+          System.out.println(a.buscarSuperMercado("Cartago").inventario.consultarInventario(a.buscarSuperMercado("Cartago").inventario.raiz));
+           a.buscarSuperMercado("Cartago").inventario.getNodo('a').listaDeProductos.eliminar("ajo");
+                   System.out.println("\n");
+                        a.buscarSuperMercado("Cartago").inventario.getNodo('a').listaDeProductos.imprimir();
+           System.out.println(a.buscarSuperMercado("Cartago").inventario.consultarInventario(a.buscarSuperMercado("Cartago").inventario.raiz));
+           
+   */
 }

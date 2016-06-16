@@ -433,6 +433,11 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
 
         botonComprarProducto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         botonComprarProducto.setText("Comprar Producto");
+        botonComprarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonComprarProductoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelGenerarClienteLayout = new javax.swing.GroupLayout(panelGenerarCliente);
         panelGenerarCliente.setLayout(panelGenerarClienteLayout);
@@ -1409,18 +1414,21 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         Object selecionado = cbConsultarSucursal.getSelectedItem();
         String StringSeleccionado = String.valueOf(selecionado);
 
-        cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
-        TPaneConsultarSucursalesInfo.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + ">> Cantidad de empleados:" + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados);//Falta agregarle lo de inventario
-        
-        Nodo_Arbol raizNodo = cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz;
-        
-        if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz != null){
-           TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.consultarInventario(raizNodo)); 
+        if(cbConsultarSucursal.getSelectedItem()!= null){
+            TPaneConsultarSucursalesInfo.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " + tab + tab + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + ">> Cantidad de empleados:" + tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).numEmpleados);//Falta agregarle lo de inventario
+
+            Nodo_Arbol raizNodo = cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz;
+
+            if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz != null){
+               TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.consultarInventario(raizNodo)); 
+            }
+            else{
+               TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+" No hay productos disponibles");
+            }
+        }else{
+            JOptionPane.showMessageDialog(panelPrincipal, "No hay sucursales registradas en el sistema");
+                
         }
-        else{
-           TPaneConsultarSucursalesInvent.setText("INVENTARIO DISPONIBLE"+ enter+enter+" No hay productos disponibles");
-        }
-       
 
     }//GEN-LAST:event_botonVerConsultarActionPerformed
 
@@ -1502,10 +1510,14 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         Object selecionado = cbConsultarCaminos.getSelectedItem();
         String StringSeleccionado = String.valueOf(selecionado);
        
-        cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
-        
-        TPaneConsultarCaminos.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " +tab+ tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + "CAMINOS:" + enter+ cadenaSupermercados.imprimirRutaDeterminada(StringSeleccionado));
-       
+        if(cbConsultarCaminos.getSelectedItem()!= null){
+            cadenaSupermercados.buscarSuperMercado(StringSeleccionado);
+
+            TPaneConsultarCaminos.setText("INFORMACION DE LA SUCURSAL" + enter+ enter + ">> Nombre: " +tab+ tab + tab + cadenaSupermercados.buscarSuperMercado(StringSeleccionado).nombreSuperMercado + enter + enter + "CAMINOS:" + enter+ cadenaSupermercados.imprimirRutaDeterminada(StringSeleccionado));
+        }else{
+            JOptionPane.showMessageDialog(panelPrincipal, "No hay sucursales registradas en el sistema");
+              
+        }
          
     }//GEN-LAST:event_botonVerConsultarCaminosActionPerformed
 
@@ -1669,7 +1681,6 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                 if (JOptionPane.CANCEL_OPTION != mensajeEliminarInv) {
                     if(eliminarTodoInventario.isSelected()){
                         cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz= null;
-                        System.out.println("Se esta eliminando todo el inventario");
                         TPaneConsultarInventario1.setText(null);
                         JOptionPane.showMessageDialog(panelPrincipal, "Se ha eliminado el inventario correctamente");
 
@@ -1690,18 +1701,27 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
                             String aux = StringProductoEliminar.getText(); 
                             
                             if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.buscarSiExiste(charLetraNodoEliminar[0])){
-                                System.out.println(aux + "aqui imprime lo del tf");
                                 if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.getNodo(charLetraNodoEliminar[0]).listaDeProductos.existeProducto(aux)==true){
                                     
                                     //Verifica que la lista dentro del nodo tenga solo un elemento
                                     if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.getNodo(charLetraNodoEliminar[0]).listaDeProductos.tamaño==1){
-
+                                        if(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.getNodo(charLetraNodoEliminar[0])==cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz &&cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.tamañoArbol==1){
+                                            cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.raiz= null;
+                                            System.out.println(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.tamañoArbol);
+                                            cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.tamañoArbol--;
+                                            System.out.println(cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.tamañoArbol);
+                                    
+                                        }else{
+                                        //Revisar porque se cae el eliminar.. agregar contador a metodo eliminar en clase ABB
                                         cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.eliminar(charLetraNodoEliminar[0]);
-                                        System.out.println("mierdita"+ charLetraNodoEliminar[0]);
+                                        
+                                        }
                                     }
-                                   // else{
-                                       // cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.getNodo(charLetraNodoEliminar[0]).listaDeProductos.eliminar(StringProductoEliminar.getText());
-                                 //   }
+                                    else{
+                                        //Si la lista de productos del inventario es mayor a 1 elimina solo el nodo de la lista
+                                        cadenaSupermercados.buscarSuperMercado(StringSeleccionado).inventario.getNodo(charLetraNodoEliminar[0]).listaDeProductos.eliminar(aux);
+                                        
+                                    }
                                     
                                 TPaneConsultarInventario1.setText(null);
                                 JOptionPane.showMessageDialog(panelPrincipal, "Se ha eliminado el producto correctamente");
@@ -1884,6 +1904,31 @@ public class TecMarketInterfaz extends javax.swing.JFrame {
         labelConNombreSucursalDondeHayCliente.setText(null);
           
     }//GEN-LAST:event_botonXpanelClienteActionPerformed
+
+    private void botonComprarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarProductoActionPerformed
+        String productoComprado = TFProductoQueSeDeseaAdquirir.getText();
+        String cantidCosas = TFCantidadQueSeDeseaAdquirir.getText();
+        String sucursal = labelConNombreSucursalDondeHayCliente.getText();
+        int numCantProductos = Integer.parseInt(cantidCosas);
+        
+        String cadenaNombreProducto = productoComprado; 
+        cadenaNombreProducto = cadenaNombreProducto.replaceAll(cadenaNombreProducto.toLowerCase(),cadenaNombreProducto.toUpperCase());           
+        char charLetraNodo [] = cadenaNombreProducto.toCharArray();
+                    
+        
+        
+        if(cadenaSupermercados.buscarSuperMercado(sucursal).inventario.getNodo(charLetraNodo[0]).listaDeProductos.BuscarProducto(productoComprado).cantidadProducto>=numCantProductos){
+           cadenaSupermercados.buscarSuperMercado(sucursal).inventario.getNodo(charLetraNodo[0]).listaDeProductos.eliminarCantProduto(productoComprado, numCantProductos);
+            System.out.println(cadenaSupermercados.buscarSuperMercado(sucursal).inventario.getNodo(charLetraNodo[0]).listaDeProductos.BuscarProducto(productoComprado).cantidadProducto+ " esta es la canntidad de productos que quedan");
+            JOptionPane.showMessageDialog(panelPrincipal, "Se ha comprado el producto deseado");
+
+        }else{
+           JOptionPane.showMessageDialog(panelPrincipal, "No hay producto disponible");
+
+        }
+        
+        
+    }//GEN-LAST:event_botonComprarProductoActionPerformed
     
     public static void main(String args[]) {
 

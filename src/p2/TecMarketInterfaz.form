@@ -631,6 +631,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Comprar Producto"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonComprarProductoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TFProductoQueSeDeseaAdquirir">
             </Component>
